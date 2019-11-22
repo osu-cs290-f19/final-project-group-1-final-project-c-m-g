@@ -34,6 +34,11 @@
 <!--DOM for search input fields-->
 
     <section id="search-box">
+
+      <div class="search-header">
+          <h3>Recipe Box Search</h3>
+      </div>
+
       <!--Input field for searching title-->
       <div class="search-container">
         <label for="search-title" class="search-input-text">Title</label>
@@ -103,9 +108,12 @@
             <li><a href="#" name="tab-lunch">Lunch</a></li>
             <li><a href="#" name="tab-dinner">Dinner</a></li>  
             <li><a href="#" name="tab-add-recipe">Add Recipe</a></li>    
-  
+            <!--tabs to add?? : recipe of the day (different packaging, same functinality, as recipe roulette
+                              : favorite recipes (tallies number of views each card gets and adds the top values to the list-->
+
         </ul>
         
+
         <!--content here?? not sure if we actually need this
         <div id="content"> 
             <div id="tab-all"></div>
@@ -123,17 +131,22 @@
 <!--DOM for recipe card after being clicked on and enlarged-->
     <section id="recipe-cards">
 
+      <div class="recipe-cards-popped">
+
         <div class="recipes" data-cook-time="{}" data-people-served="{}" data-difficulty="{}" data-spice="{}" data-ingredients="{}"data-directions="{}"data-author="{}">
           <div class="recipe-contents">
             <div class="post-image-container">
               <img src="{}" alt="{}">
             </div>
             <div class="recipe-card-container">
-              <a href="#" class="recipe-title">XYum</a> <span class="data-cook-time">xMinutes</span> <span class="data-people-served">XPeople</span><span class="data-difficulty">xEasy</span>
+                <h3><a href="#" class="recipe-title">Recipe Title</a></h3> <span class="data-cook-time"># Minutes</span> <span class="data-people-served"># People Served</span><span class="data-difficulty"> Easy</span>
                 <span class="data-ingredients">
                   <ul>
                     <li>
-                        xApples<!--how to have variable amount of list items (ingredients) for different posts? -->
+                        Ingredients<!--how to have variable amount of list items (ingredients) for different posts? -->
+                    </li>
+                    <li>
+                        Ingredients 2<!--how to have variable amount of list items (ingredients) for different posts? -->
                     </li>
                   </ul>
               </span>
@@ -141,7 +154,12 @@
                   <ol>
                     <li>
                         <p>
-                            xDo This<!--how to have variable amount of list items (directions) for different posts? -->
+                            Instructions<!--how to have variable amount of list items (directions) for different posts? -->
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Instructions<!--how to have variable amount of list items (directions) for different posts? -->
                         </p>
                     </li>
                   </ol>
@@ -150,6 +168,96 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="add-recipe-card">
+
+      <div id="screen-overlay" class="hidden"></div>
+      <div id="add-recipe-modal" class="hidden">
+        <div class="add-modal">
+
+          <div class="recipe-modal-header">
+            <h3>Add a Recipe Card to the Box</h3>
+            <button type="button-x" id="modal-close-x" class="modal-hide-button-x">&times;</button>
+          </div>
+
+          <div class="recipe-modal-body">
+
+            <div class="recipe-input-element">
+              <label for="recipe-title-input">Recipe Name</label>
+              <input type="text" id="recipe-title-input"></input>
+            </div>
+
+            <div class="recipe-input-element">
+              <label for="recipe-photo-input">Photo URL</label>
+              <input type="text" id="recipe-photo-input">
+            </div>
+
+            <div class="recipe-input-element">
+              <label for="recipe-size-input">Recipe Size (# of people)</label>
+              <input type="number" id="recipe-size-input">
+            </div>
+
+            <div class="recipe-input-element">
+                <label for="time-city-input">Total Cooking Time</label>
+                <input type="text" id="time-city-input">
+            </div>
+
+            <div class="recipe-input-element">
+                <label for="recipe-author-input">Recipe Author</label>
+                <input type="text" id="recipe-author-input">
+            </div>
+
+            <div class="recipe-input-element">
+                <fieldset id="recipe-difficulty-fieldset" class="difficulty-fieldset">
+                  <legend>Spice Level</legend>
+                  <div>
+                    <input type="radio" name="difficulty-rating" id="difficulty-rating-easy" value="easy" checked>
+                    <label for="difficulty-rating-easy">Easy Street</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="difficulty-rating" id="difficulty-rating-skills" value="skills">
+                    <label for="difficulty-rating-skills">Got Skills</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="spice-rating" id="difficulty-rating-chef" value="chef">
+                    <label for="difficulty-rating-chef">Top Chef</label>
+                  </div>
+                </fieldset>
+              </div>
+
+            <div class="recipe-input-element">
+              <fieldset id="recipe-spice-fieldset" class="spice-fieldset">
+                <legend>Spice Level</legend>
+                <div>
+                  <input type="radio" name="spice-rating" id="spice-rating-none" value="none" checked>
+                  <label for="spice-rating-none">None</label>
+                </div>
+                <div>
+                  <input type="radio" name="spice-rating" id="spice-rating-mild" value="mild">
+                  <label for="spice-rating-mild">Mild</label>
+                </div>
+                <div>
+                  <input type="radio" name="spice-rating" id="spice-rating-medium" value="medium">
+                  <label for="spice-rating-medium">Medium</label>
+                </div>
+                <div>
+                  <input type="radio" name="spice-rating" id="spice-rating-hot" value="hot">
+                  <label for="spice-rating-hot">Hot</label>
+                </div>
+              </fieldset>
+            </div>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" id="modal-accept" class="action-button">Create Post</button>
+          </div>
+
+        </div>
+      </div>
+
     </section>
 </body>
 </html>
