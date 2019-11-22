@@ -2,8 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Benny's List</title>
-
+    <title>Recipe Box</title>
+    <!--This is a web app for families to document their recipes in digital format. It includes searching and adding new recipe "cards"-->
+    
+    <!---Some of the basic HTML DOM structures were taken from the Benny's List assignments, but heavily adapted to our purpose-->
+    <!--Used this tutorial for the "folder" tabs https://catalin.red/css3-jquery-folder-tabs/ -->
+    
     <!-- This 3rd-party stylesheet makes available the font families to be used for this page ("Roboto" and "Roboto Slab"). -->
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:100" rel="stylesheet">
 
@@ -82,12 +86,44 @@
           </select>        
       </div>
     </div>
+    <!-- search button -->
+    <div class="search-button-container">
+        <button type="button" id="search-button" class="search-button">Search</button>
+    </div>
+
 </section>
+
+
+<section id="meal-tabs">
+    <!--need 4 tabs and add button button here-->
+    <div class="tabs" data-meal="{}"></div><!--not sure if we need any data attribute handlebars or not-->
+        <ul id="tabs">
+            <li><a href="#" name="tab-all">All</a></li>
+            <li><a href="#" name="tab-breakfast">Breakfast</a></li>
+            <li><a href="#" name="tab-lunch">Lunch</a></li>
+            <li><a href="#" name="tab-dinner">Dinner</a></li>  
+            <li><a href="#" name="tab-add-recipe">Add Recipe</a></li>    
+  
+        </ul>
+        
+        <!--content here?? not sure if we actually need this
+        <div id="content"> 
+            <div id="tab-all"></div>
+            <div id="tab-breakfast"></div>
+            <div id="tab-lunch"></div>
+            <div id="tab-dinner"></div>
+            <div id="tab-add-recipe"></div>
+        </div>
+        -->
+    </div>
+
+</section>
+
 
 <!--DOM for recipe card after being clicked on and enlarged-->
     <section id="recipe-cards">
 
-        <div class="recipes" data-cook-time="{}" data-people-served="{}" data-difficulty="{}" data-spice="{}"data-ingredients="{}"data-directions="{}"data-author="{}">
+        <div class="recipes" data-cook-time="{}" data-people-served="{}" data-difficulty="{}" data-spice="{}" data-ingredients="{}"data-directions="{}"data-author="{}">
           <div class="recipe-contents">
             <div class="post-image-container">
               <img src="{}" alt="{}">
