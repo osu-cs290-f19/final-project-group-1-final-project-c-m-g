@@ -53,8 +53,8 @@
           <div class="time-input-element">
             <input type="text" name="search-max-time" id="max-time" class="search-time" placeholder="max">
           </div>
-        </div>
-    </section>
+      </div>
+    
 
           <!-- max Family Size input for searching based on quantity-->
     <div class="search-container">
@@ -63,7 +63,7 @@
           <input type="text" name="search-fam-size" id="fam-size" class="search-size" placeholder="# of people">
         </div>
       </div>
-  </section>
+  
 
     <!-- Difficulty Rating input for searching based on difficulty level-->
     <div class="search-container">
@@ -77,9 +77,9 @@
             </select>        
         </div>
       </div>
-  </section>
+  
 
-  <!-- Difficulty Rating input for searching based on difficulty level-->
+  <!-- Family member input for searching based on author level
   <div class="search-container">
       <label for="search-author" class="author-input-label">Author</label>
       <div class="author-input-element">
@@ -90,7 +90,18 @@
               <option>Papa J</option>
           </select>        
       </div>
-    </div>
+    </div> -->
+
+
+      <!-- Family member input for searching based on author -->
+      <div class="search-container">
+        <label for="search-fam-mem" class="fam-mem-input-label">Author</label>
+        <div class="fam-mem-input-element">
+          <input type="text" name="search-fam-mem" id="fam-mem" class="search-fam-mem" placeholder="recipe author">
+        </div>
+      </div>
+
+
     <!-- search button -->
     <div class="search-button-container">
         <button type="button" id="search-button" class="search-button">Search</button>
@@ -142,9 +153,9 @@
                 <h3><a href="#" class="recipe-title">Recipe Title</a></h3> <span class="data-cook-time"># Minutes</span> <span class="data-people-served"># People Served</span><span class="data-difficulty"> Easy</span>
                 <span class="data-ingredients">
                   <ul>
-                    <li>
+                    <span class="data-ingredient-item"></span><li>
                         Ingredients<!--how to have variable amount of list items (ingredients) for different posts? -->
-                    </li>
+                    </li></span>
                     <li>
                         Ingredients 2<!--how to have variable amount of list items (ingredients) for different posts? -->
                     </li>
@@ -211,7 +222,7 @@
 
             <div class="recipe-input-element">
                 <fieldset id="recipe-difficulty-fieldset" class="difficulty-fieldset">
-                  <legend>Spice Level</legend>
+                  <legend>Difficulty Level</legend>
                   <div>
                     <input type="radio" name="difficulty-rating" id="difficulty-rating-easy" value="easy" checked>
                     <label for="difficulty-rating-easy">Easy Street</label>
@@ -221,11 +232,11 @@
                     <label for="difficulty-rating-skills">Got Skills</label>
                   </div>
                   <div>
-                    <input type="radio" name="spice-rating" id="difficulty-rating-chef" value="chef">
+                    <input type="radio" name="difficulty-rating" id="difficulty-rating-chef" value="chef">
                     <label for="difficulty-rating-chef">Top Chef</label>
                   </div>
                 </fieldset>
-              </div>
+            </div>
 
             <div class="recipe-input-element">
               <fieldset id="recipe-spice-fieldset" class="spice-fieldset">
@@ -249,36 +260,63 @@
               </fieldset>
             </div>
 
-            <!-- 
-              *********ingredients volume in number form***********
-               <div class="recipe-input-element">
-              <label for="recipe-title-input">Recipe Name</label>
-              <input type="text" id="recipe-title-input"></input>
+            <div class="ingredients-input-container">
+
+                 <!-- *********ingredients volume in number form***********-->
+                  <div class="recipe-input-element">
+                      <label for="recipe-volume-input">Ingredient Volume</label>
+                      <input type="text" id="recipe-volume-input"></input>
+                  </div>
+
+                  <!--*********ingredients unit of measure (radio buttons?)***********-->
+                    <div class="recipe-input-element">
+                          <fieldset id="recipe-measure-fieldset" class="measure-fieldset">
+                            <legend>Unit of Measure</legend>
+                            <div>
+                              <input type="radio" name="measure-rating" id="measure-rating-easy" value="cups" checked>
+                              <label for="measure-rating-easy">Cups</label>
+                            </div>
+                            <div>
+                              <input type="radio" name="measure-rating" id="measure-rating-skills" value="tsp">
+                              <label for="measure-rating-skills">tsp</label>
+                            </div>
+                            <div>
+                              <input type="radio" name="spice-rating" id="measure-rating-chef" value="Tbsp">
+                              <label for="measure-rating-chef">Tbsp</label>
+                            </div>
+                          </fieldset>
+                    </div>
+
+                    <!--*********ingredients body***********-->
+                    <div class="recipe-input-element">
+                        <label for="ingredient-name-input">Ingredient Name</label>
+                        <input type="text" id="ingredient-name-input"></input>
+                    </div>
+
+                  <!--***********button add new ingredient??***********-->
+                    <div class="modal-footer">
+                        <button type="button" id="add-ing-line" class="add-line-button"> + New Ingredient</button>
+                    </div>
             </div>
-            *********ingredients unit of measure (radio buttons?)***********
-               <div class="recipe-input-element">
-              <label for="recipe-title-input">Recipe Name</label>
-              <input type="text" id="recipe-title-input"></input>
-            </div>
-              *********ingredients body***********
-               <div class="recipe-input-element">
-              <label for="recipe-title-input">Recipe Name</label>
-              <input type="text" id="recipe-title-input"></input>
-            </div>
-            ***********button add new ingredient??***********
 
 
-            ************number of steps?***********
-            <div class="recipe-input-element">
-              <label for="recipe-title-input">Recipe Name</label>
-              <input type="text" id="recipe-title-input"></input>
-            </div>
-            *********directions body***********
-               <div class="recipe-input-element">
-              <label for="recipe-title-input">Recipe Name</label>
-              <input type="text" id="recipe-title-input"></input>
-            </div>
-            -->
+              <div class="directions-input-container">
+
+                  <!--************number of steps?***********
+                  <div class="recipe-input-element">
+                    <label for="recipe-num-directions-input">Directions</label>
+                    <input type="text" id="recipe-num-directions-input"></input>
+                  </div>
+                -->
+                
+                  <!--*********directions body***********-->
+                    <div class="recipe-input-element">
+                        <label for="recipe-directions-input">Directions</label>
+                        <input type="text" id="recipe-directions-input"></input>
+                    </div>
+              </div>
+
+                <!------------->
 
           </div>
 
