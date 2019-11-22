@@ -2,10 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Benny's List</title>
-
+    <title>Recipe Box</title>
+    <!--This is a web app for families to document their recipes in digital format. It includes searching and adding new recipe "cards"-->
+    
+    <!---Some of the basic HTML DOM structures were taken from the Benny's List assignments, but heavily adapted to our purpose-->
+    <!--Used this tutorial for the "folder" tabs https://catalin.red/css3-jquery-folder-tabs/ -->
+    
     <!-- This 3rd-party stylesheet makes available the font families to be used for this page ("Roboto" and "Roboto Slab"). -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:100" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Asap|Crete+Round|Satisfy&display=swap" rel="stylesheet">
 
     <!-- This 3rd-party stylesheet incorporates SVG icons from Font Awesome: http://fontawesome.com/ -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" crossorigin="anonymous">
@@ -26,19 +30,138 @@
       <h1 class="site-title"><a href="#">Recipe Box</a></h1>
 
     </header>
+
+<!--DOM for search input fields-->
+
+    <section id="search-box">
+
+      <div class="search-header">
+          <h3>Recipe Box Search</h3>
+      </div>
+
+      <!--Input field for searching title-->
+      <div class="search-container">
+        <label for="search-title" class="search-input-text">Title</label>
+        <div class="title-search"><!--revisit!! questionable class name, not sure of implications or where we will need to use it at this point-->
+            <input type="text" name="search-title" id="search-title" class="search-input">
+        </div>
+      </div>
+
+      <!-- max Time input for searching based on cook time-->
+      <div class="search-container">
+          <label for="search-max-time" class="time-input-label">Cooking Time</label>
+          <div class="time-input-element">
+            <input type="text" name="search-max-time" id="max-time" class="search-time" placeholder="max">
+          </div>
+      </div>
+    
+
+          <!-- max Family Size input for searching based on quantity-->
+    <div class="search-container">
+        <label for="search-fam-size" class="fam-size-input-label">Family Size</label>
+        <div class="fam-size-input-element">
+          <input type="text" name="search-fam-size" id="fam-size" class="search-size" placeholder="# of people">
+        </div>
+      </div>
+  
+
+    <!-- Difficulty Rating input for searching based on difficulty level-->
+    <div class="search-container">
+        <label for="search-difficulty" class="difficulty-input-label">Difficulty Rating</label>
+        <div class="diff-drop-input-element">
+            <select id="search-difficulty" class="diff-drop" name="diff-drop">
+                <option selected value="">All</option>
+                <option>Easy Street</option>
+                <option>Got Skills</option>
+                <option>Top Chef</option>
+            </select>        
+        </div>
+      </div>
+  
+
+  <!-- Family member input for searching based on author level
+  <div class="search-container">
+      <label for="search-author" class="author-input-label">Author</label>
+      <div class="author-input-element">
+          <select id="search-author" class="author-dropdown" name="author-dropdown">
+              <option selected value="">All</option>
+              <option>Grandma B</option>
+              <option>Auntie M</option>
+              <option>Papa J</option>
+          </select>        
+      </div>
+    </div> -->
+
+
+      <!-- Family member input for searching based on author -->
+      <div class="search-container">
+        <label for="search-fam-mem" class="fam-mem-input-label">Author</label>
+        <div class="fam-mem-input-element">
+          <input type="text" name="search-fam-mem" id="fam-mem" class="search-fam-mem" placeholder="recipe author">
+        </div>
+      </div>
+
+
+    <!-- search button -->
+    <div class="search-button-container">
+        <button type="button" id="search-button" class="search-button">Search</button>
+    </div>
+
+</section>
+
+
+<section id="meal-tabs">
+    <!--need 4 tabs and add button button here-->
+    <div class="tabs" data-meal="{}"></div><!--not sure if we need any data attribute handlebars or not-->
+        <ul id="tabs">
+            <li><a href="#" name="tab-all">All</a></li>
+            <li><a href="#" name="tab-breakfast">Breakfast</a></li>
+            <li><a href="#" name="tab-lunch">Lunch</a></li>
+            <li><a href="#" name="tab-dinner">Dinner</a></li>  
+            <li><a href="#" name="tab-add-recipe">Add Recipe</a></li>    
+            <!--tabs to add?? : recipe of the day (different packaging, same functinality, as recipe roulette
+                              : favorite recipes (tallies number of views each card gets and adds the top values to the list-->
+
+        </ul>
+        
+
+        <!--content here?? not sure if we actually need this
+        <div id="content"> 
+            <div id="tab-all"></div>
+            <div id="tab-breakfast"></div>
+            <div id="tab-lunch"></div>
+            <div id="tab-dinner"></div>
+            <div id="tab-add-recipe"></div>
+        </div>
+        -->
+    </div>
+
+</section>
+
+
+<!--DOM for recipe card after being clicked on and enlarged-->
     <section id="recipe-cards">
 
-        <div class="xxx" data-cook-time="{}" data-people-served="{}" data-difficulty="{}" data-spice="{}"data-ingredients="{}"data-directions="{}"data-author="{}">
+      <div class="recipe-cards-popped">
+
+        <div class="recipes" data-cook-time="{}" data-people-served="{}" data-difficulty="{}" data-spice="{}" data-ingredients="{}"data-directions="{}"data-author="{}">
           <div class="recipe-contents">
-            <div class="post-image-container">
+            <div class="recipe-image-container">
               <img src="{}" alt="{}">
             </div>
+            <!--<i class="fas fa-heart"></i>
+            <i class="far fa-heart"></i> **this one's empty-->
+
+
             <div class="recipe-card-container">
-              <a href="#" class="recipe-title">XYum</a> <span class="data-cook-time">xMinutes</span> <span class="data-people-served">XPeople</span><span class="data-difficulty">xEasy</span>
+                <h3><a href="#" class="recipe-title">Recipe Title**card</a></h3> <span class="data-cook-time"># Minutes</span> <span class="data-people-served"># People Served</span><span class="data-difficulty"> Easy</span>
                 <span class="data-ingredients">
                   <ul>
+                    <span class="data-ingredient-item"></span><li>
+                        Ingredients<!--how to have variable amount of list items (ingredients) for different posts? -->
+                    </li></span>
                     <li>
-                        xApples<!--how to have variable amount of list items (ingredients) for different posts? -->
+                        Ingredients 2<!--how to have variable amount of list items (ingredients) for different posts? -->
                     </li>
                   </ul>
               </span>
@@ -46,7 +169,12 @@
                   <ol>
                     <li>
                         <p>
-                            xDo This<!--how to have variable amount of list items (directions) for different posts? -->
+                            Instructions<!--how to have variable amount of list items (directions) for different posts? -->
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Instructions<!--how to have variable amount of list items (directions) for different posts? -->
                         </p>
                     </li>
                   </ol>
@@ -55,6 +183,167 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="recipe-preview">
+
+        <div class="recipe-preview-container"><!--changed from recipe-card-container *** will this cause access issues??-->
+            <div class="recipe-image-container">
+              <img src="{}" alt="{}">
+            </div>
+            <h3><a href="#" class="recipe-title">Recipe Title**Preview</a></h3> <!--<i class="fas fa-heart"></i>-->
+            <span class="data-author">Created by: Grandma B</span>
+        </div>
+
+    </section>
+
+
+    <section id="add-recipe-card">
+
+      <div id="screen-overlay" class="hidden"></div>
+      <div id="add-recipe-modal" class="hidden">
+        <div class="add-modal">
+
+          <div class="recipe-modal-header">
+            <h3>Add a Recipe Card to the Box</h3>
+            <button type="button-x" id="modal-close-x" class="modal-hide-button-x">&times;</button>
+          </div>
+
+          <div class="recipe-modal-body">
+
+            <div class="recipe-input-element">
+              <label for="recipe-title-input">Recipe Name</label>
+              <input type="text" id="recipe-title-input"></input>
+            </div>
+
+            <div class="recipe-input-element">
+              <label for="recipe-photo-input">Photo URL</label>
+              <input type="text" id="recipe-photo-input">
+            </div>
+
+            <div class="recipe-input-element">
+              <label for="recipe-size-input">Recipe Size (# of people)</label>
+              <input type="number" id="recipe-size-input">
+            </div>
+
+            <div class="recipe-input-element">
+                <label for="time-city-input">Total Cooking Time</label>
+                <input type="text" id="time-city-input">
+            </div>
+
+            <div class="recipe-input-element">
+                <label for="recipe-author-input">Recipe Author</label>
+                <input type="text" id="recipe-author-input">
+            </div>
+
+            <div class="recipe-input-element">
+                <fieldset id="recipe-difficulty-fieldset" class="difficulty-fieldset">
+                  <legend>Difficulty Level</legend>
+                  <div>
+                    <input type="radio" name="difficulty-rating" id="difficulty-rating-easy" value="easy" checked>
+                    <label for="difficulty-rating-easy">Easy Street</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="difficulty-rating" id="difficulty-rating-skills" value="skills">
+                    <label for="difficulty-rating-skills">Got Skills</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="difficulty-rating" id="difficulty-rating-chef" value="chef">
+                    <label for="difficulty-rating-chef">Top Chef</label>
+                  </div>
+                </fieldset>
+            </div>
+
+            <div class="recipe-input-element">
+              <fieldset id="recipe-spice-fieldset" class="spice-fieldset">
+                <legend>Spice Level</legend>
+                <div>
+                  <input type="radio" name="spice-rating" id="spice-rating-none" value="none" checked>
+                  <label for="spice-rating-none">None</label>
+                </div>
+                <div>
+                  <input type="radio" name="spice-rating" id="spice-rating-mild" value="mild">
+                  <label for="spice-rating-mild">Mild</label>
+                </div>
+                <div>
+                  <input type="radio" name="spice-rating" id="spice-rating-medium" value="medium">
+                  <label for="spice-rating-medium">Medium</label>
+                </div>
+                <div>
+                  <input type="radio" name="spice-rating" id="spice-rating-hot" value="hot">
+                  <label for="spice-rating-hot">Hot</label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="ingredients-input-container">
+
+                 <!-- *********ingredients volume in number form***********-->
+                  <div class="recipe-input-element">
+                      <label for="recipe-volume-input">Ingredient Volume</label>
+                      <input type="text" id="recipe-volume-input"></input>
+                  </div>
+
+                  <!--*********ingredients unit of measure (radio buttons?)***********-->
+                    <div class="recipe-input-element">
+                          <fieldset id="recipe-measure-fieldset" class="measure-fieldset">
+                            <legend>Unit of Measure</legend>
+                            <div>
+                              <input type="radio" name="measure-rating" id="measure-rating-easy" value="cups" checked>
+                              <label for="measure-rating-easy">Cups</label>
+                            </div>
+                            <div>
+                              <input type="radio" name="measure-rating" id="measure-rating-skills" value="tsp">
+                              <label for="measure-rating-skills">tsp</label>
+                            </div>
+                            <div>
+                              <input type="radio" name="spice-rating" id="measure-rating-chef" value="Tbsp">
+                              <label for="measure-rating-chef">Tbsp</label>
+                            </div>
+                          </fieldset>
+                    </div>
+
+                    <!--*********ingredients body***********-->
+                    <div class="recipe-input-element">
+                        <label for="ingredient-name-input">Ingredient Name</label>
+                        <input type="text" id="ingredient-name-input"></input>
+                    </div>
+
+                  <!--***********button add new ingredient??***********-->
+                    <div class="modal-footer">
+                        <button type="button" id="add-ing-line" class="add-line-button"> + New Ingredient</button>
+                    </div>
+            </div>
+
+
+              <div class="directions-input-container">
+
+                  <!--************number of steps?***********
+                  <div class="recipe-input-element">
+                    <label for="recipe-num-directions-input">Directions</label>
+                    <input type="text" id="recipe-num-directions-input"></input>
+                  </div>
+                -->
+                
+                  <!--*********directions body***********-->
+                    <div class="recipe-input-element">
+                        <label for="recipe-directions-input">Directions</label>
+                        <input type="text" id="recipe-directions-input"></input>
+                    </div>
+              </div>
+
+                <!------------->
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" id="modal-accept" class="action-button">Create Post</button>
+          </div>
+
+        </div>
+      </div>
+
     </section>
 </body>
 </html>
