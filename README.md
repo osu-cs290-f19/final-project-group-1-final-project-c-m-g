@@ -13,3 +13,12 @@ HTML:
   --each row for ingredient could include these fields "input volume" (account for fractions in formatting), choose "unit of measure" dropdown, and then a regular text input for the "ingredient name"
   
    -- and create the corresponding data sets within the DOM I have already created.
+
+JS
+  -Finalize list of functions we need to add to the JS file for our HTML to work
+  -Translate the necessary functions to Handlebars, partials and templates to dynamically create content.
+  -Integrate MongoDB into this process as well, will get better idea.
+  
+Need to Make/Do:
+  -server.js to include our server with appropriate usage of npm, express, handlebars, and express-handlebars
+  -package.json with appropriate template generation and partials in associated .handlebars files
