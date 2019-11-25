@@ -8,6 +8,7 @@ html{
     background-color: #FCF4E7;
 }
 
+
 header{
     display: flex;
     position: relative;
@@ -57,7 +58,6 @@ header{
     font-family: 'Crete Round', serif;
     align-items: relative;
     padding: 10px;
-    justify-content: flex-end;
 }
 
 #search-button{
@@ -66,7 +66,45 @@ header{
     padding: 10px;
     background-color: black;
     color: white;
-    border: 2px solid #FD671A;
+    border: 3px solid #FD671A;
     border-radius: 10px;
-    font-family: 'Crete Round', serif
+    font-family: 'Crete Round', serif;
+    font-size: x-large;
+}
+
+#search-button:hover{
+    position: relative;
+    display: flex;
+    padding: 10px;
+    background-color: #FD671A;
+    color: black;
+    border: 3px solid black;
+    border-radius: 10px;
+    font-family: 'Crete Round', serif;
+    font-size: x-large;
+}
+
+#meal-tabs ul{
+    list-style-type: none;
+    display: inline;
+    background-color: #BCBDC1;
+    padding: 0;
+    margin: 0;
+    background-color: #BCBDC1;
+}
+
+#meal-tabs li{
+    float: left;
+}
+
+#meal-tabs li a{
+    display: block;
+    color:black;
+    text-align: center;
+    padding: 26px, 10px;
+    text-decoration: none;
+}
+
+#meal-tabs li a:hover{
+    background-color: #FD671A;
 }
