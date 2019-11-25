@@ -1,0 +1,46 @@
+/*
+Group 1 Final Project style.css
+Garrett Brown (browng2@oregonstate.edu), 
+Marcella Petrucci (petrucma@oregonstate.edu),
+Chris Weiner (weinerc@oregonstate.edu)
+*/
+html{
+    background-color: #FCF4E7;
+}
+
+header{
+    align-self: center;
+    display: inline-flex;
+    position: relative;
+    margin: 20px;
+}
+
+.header-image-container{
+    position: relative;
+    display: inline-block;
+}
+
+.site-title a{
+    position: relative;
+    background-color: #FD671A;
+    color: black;
+    font-family: 'Satisfy', cursive;
+    text-decoration: none;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    border: 2px solid black;
+}
+
+#search-box{
+    display: flex;
+    background-color: #BCBDC1;
+    border: 2px solid black;
+    font-family: 'Crete Round', serif;
+}
+
+.search-container{
+    font-family: 'Crete Round', serif;
+    align-items: flex-start;
+}

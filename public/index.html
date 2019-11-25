@@ -24,7 +24,8 @@
     <header>
 
       <div class="header-image-container">
-        <img src="xxx" alt="xxx-logo">
+      <!--  <img src="https://d29fhpw069ctt2.cloudfront.net/icon/image/38304/preview.svg" alt="recipe-logo">-->
+      <img src="folder@3x.png" alt="recipe-logo">
       </div>
 
       <h1 class="site-title"><a href="#">Recipe Box</a></h1>
@@ -197,6 +198,99 @@
         </div>
 
     </section>
+
+<!--**************TEST WITH DATA **************recipe card after being clicked on and enlarged-->
+<section id="recipe-cards">
+
+  <div class="recipe-cards-popped">
+
+    <div class="recipes" data-cook-time="{}" data-people-served="{}" data-difficulty="{}" data-spice="{}" data-ingredients="{}"data-directions="{}"data-author="{}">
+      <div class="recipe-contents">
+        <div class="recipe-image-container">
+          <img src="{}" alt="{}">
+        </div>
+        <!--<i class="fas fa-heart"></i>
+        <i class="far fa-heart"></i> **this one's empty-->
+
+
+        <div class="recipe-card-container">
+            <h3><a href="#" class="recipe-title">Lasagna**Modal Recipe Card</a></h3>
+            <div class="recipe-image-container">
+                <img src="https://hips.hearstapps.com/vidthumb/images/180820-bookazine-delish-01280-1536610916.jpg?crop=0.855xw%3A0.721xh%3B0%2C0.275xh&resize=480%3A270" alt="lasagna">
+              </div>
+            <span class="data-cook-time-heading"><h4>Cook Time:</h4></span><span class="data-cook-time">90 Minutes</span> </br>
+            <span class="data-serves-heading"><h4>Serves:</h4></span><span class="data-people-served">10 People </span></br>
+            <span class="data-difficulty-heading"><h4>Difficulty:</h4></span><span class="data-difficulty">Easy</span> <!--would this be easier to use if organized as unordered list/list item tags?-->
+          </br>
+            <span class="data-ingredients">
+                <span class="data-ingredients-heading"><h4>Ingredients:</h4></span>
+              <ul>
+                <span class="data-ingredient-item"></span><!--Do we need this span aound each ing? prob will be part of template, im guessing??-->
+                <li>
+                      Lasagna noodles
+                </li></span>
+                <li>
+                    1 lb sausage crumbles
+                </li>
+                <li>
+                    16 oz tomato sauce
+                </li>
+                <li>
+                    1 onion
+                </li>
+                <li>
+                    3 cloves garlic
+                </li>
+                <li>
+                    1 Tbsp each: Italian herb blend, red chili flakes, salt, pepper
+                </li>
+                <li>
+                    1 pint ricotta
+                </li>
+                <li>
+                    1 Tbsp cinnamon
+                </li>
+                <li>
+                    1 lb mozzarella
+                </li>
+              </ul>
+          </span>
+          <span class="data-directions">
+              <ol>
+                <li>
+                    <p>
+                        Instructions: </br>Brown sausage, set aside. Sautee onions and garlic in the same pan, add herbs and spices, tomato sauce, simmer. </br>
+                        Mix cinnamon and ricotta, shred mozzarella.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Instructions:</br>
+                        Brown sausage, set aside. Sautee onions and garlic in the same pan, add herbs and spices.
+                        add tomato sauce, simmer. </br> Build layers in this order:</br> Sauce, noodles, ricotta, sausage, mozzarella, repeat.
+
+                    </p>
+                </li>
+              </ol>
+          </span>
+          <span class="data-author">Created by: Auntie M</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="recipe-preview">
+<!--*************TEST WITH DATA **************-->
+    <div class="recipe-preview-container"><!--changed from recipe-card-container *** will this cause access issues??-->
+        <div class="recipe-image-container">
+          <img src="https://hips.hearstapps.com/vidthumb/images/180820-bookazine-delish-01280-1536610916.jpg?crop=0.855xw%3A0.721xh%3B0%2C0.275xh&resize=480%3A270" alt="lasagna">
+        </div>
+        <h3><a href="#" class="recipe-title">Lasagna**Preview Card</a></h3> <!--<i class="fas fa-heart"></i>-->
+        <span class="data-author">Created by: Auntie M</span>
+    </div>
+
+</section>
 
 
     <section id="add-recipe-card">
