@@ -81,21 +81,6 @@
         </div>
       </div>
   
-
-  <!-- Family member input for searching based on author level
-  <div class="search-container">
-      <label for="search-author" class="author-input-label">Author</label>
-      <div class="author-input-element">
-          <select id="search-author" class="author-dropdown" name="author-dropdown">
-              <option selected value="">All</option>
-              <option>Grandma B</option>
-              <option>Auntie M</option>
-              <option>Papa J</option>
-          </select>        
-      </div>
-    </div> -->
-
-
       <!-- Family member input for searching based on author -->
       <div class="search-container">
         <label for="search-fam-mem" class="fam-mem-input-label">Author</label>
@@ -104,14 +89,12 @@
         </div>
       </div>
 
-
     <!-- search button -->
     <div class="search-button-container">
         <button type="button" id="search-button" class="search-button">Search</button>
     </div>
 
 </section>
-
 
 <section id="meal-tabs">
     <!--need 4 tabs and add button button here-->
@@ -154,8 +137,6 @@
             </div>
             <!--<i class="fas fa-heart"></i>
             <i class="far fa-heart"></i> **this one's empty-->
-
-
             <div class="recipe-card-container">
                 <h3><a href="#" class="recipe-title">Recipe Title**card</a></h3> <span class="data-cook-time"># Minutes</span> <span class="data-people-served"># People Served</span><span class="data-difficulty"> Easy</span>
                 <span class="data-ingredients">
@@ -163,24 +144,12 @@
                     <span class="data-ingredient-item"></span><li>
                         Ingredients<!--how to have variable amount of list items (ingredients) for different posts? -->
                     </li></span>
-                    <li>
-                        Ingredients 2<!--how to have variable amount of list items (ingredients) for different posts? -->
-                    </li>
                   </ul>
               </span>
               <span class="data-directions">
-                  <ol>
-                    <li>
                         <p>
                             Instructions<!--how to have variable amount of list items (directions) for different posts? -->
                         </p>
-                    </li>
-                    <li>
-                        <p>
-                            Instructions<!--how to have variable amount of list items (directions) for different posts? -->
-                        </p>
-                    </li>
-                  </ol>
               </span>
               <span class="data-author">Created by: Grandma B</span>
             </div>
@@ -191,7 +160,7 @@
 
     <section class="recipe-preview">
 
-        <div class="recipe-preview-container"><!--changed from recipe-card-container *** will this cause access issues??-->
+        <div class="recipe-preview-container" data-cook-time="{}" data-people-served="{}" data-difficulty="{}" data-spice="{}" data-ingredients="{}"data-directions="{}"data-author="{}"><!--changed from recipe-card-container *** will this cause access issues??-->
             <div class="recipe-image-container">
               <img src="{}" alt="{}">
             </div>
@@ -201,101 +170,7 @@
 
     </section>
 
-<!--**************TEST WITH DATA **************recipe card after being clicked on and enlarged-->
-<section id="recipe-cards">
-
-  <div class="recipe-cards-popped">
-
-    <div class="recipes" data-cook-time="{}" data-people-served="{}" data-difficulty="{}" data-spice="{}" data-ingredients="{}"data-directions="{}"data-author="{}">
-      <div class="recipe-contents">
-        <div class="recipe-image-container">
-          <img src="{}" alt="{}">
-        </div>
-        <!--<i class="fas fa-heart"></i>
-        <i class="far fa-heart"></i> **this one's empty-->
-
-
-        <div class="recipe-card-container">
-            <h3><a href="#" class="recipe-title">Lasagna**Modal Recipe Card</a></h3>
-            <div class="recipe-image-container">
-                <img src="https://hips.hearstapps.com/vidthumb/images/180820-bookazine-delish-01280-1536610916.jpg?crop=0.855xw%3A0.721xh%3B0%2C0.275xh&resize=480%3A270" alt="lasagna">
-              </div>
-            <span class="data-cook-time-heading"><h4>Cook Time:</h4></span><span class="data-cook-time">90 Minutes</span> </br>
-            <span class="data-serves-heading"><h4>Serves:</h4></span><span class="data-people-served">10 People </span></br>
-            <span class="data-difficulty-heading"><h4>Difficulty:</h4></span><span class="data-difficulty">Easy</span> <!--would this be easier to use if organized as unordered list/list item tags?-->
-          </br>
-            <span class="data-ingredients">
-                <span class="data-ingredients-heading"><h4>Ingredients:</h4></span>
-              <ul>
-                <span class="data-ingredient-item"></span><!--Do we need this span aound each ing? prob will be part of template, im guessing??-->
-                <li>
-                      Lasagna noodles
-                </li></span>
-                <li>
-                    1 lb sausage crumbles
-                </li>
-                <li>
-                    16 oz tomato sauce
-                </li>
-                <li>
-                    1 onion
-                </li>
-                <li>
-                    3 cloves garlic
-                </li>
-                <li>
-                    1 Tbsp each: Italian herb blend, red chili flakes, salt, pepper
-                </li>
-                <li>
-                    1 pint ricotta
-                </li>
-                <li>
-                    1 Tbsp cinnamon
-                </li>
-                <li>
-                    1 lb mozzarella
-                </li>
-              </ul>
-          </span>
-          <span class="data-directions">
-              <ol>
-                <li>
-                    <p>
-                        Instructions: </br>Brown sausage, set aside. Sautee onions and garlic in the same pan, add herbs and spices, tomato sauce, simmer. </br>
-                        Mix cinnamon and ricotta, shred mozzarella.
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        Instructions:</br>
-                        Brown sausage, set aside. Sautee onions and garlic in the same pan, add herbs and spices.
-                        add tomato sauce, simmer. </br> Build layers in this order:</br> Sauce, noodles, ricotta, sausage, mozzarella, repeat.
-
-                    </p>
-                </li>
-              </ol>
-          </span>
-          <span class="data-author">Created by: Auntie M</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="recipe-preview">
-<!--*************TEST WITH DATA **************-->
-    <div class="recipe-preview-container"><!--changed from recipe-card-container *** will this cause access issues??-->
-        <div class="recipe-image-container">
-          <img src="https://hips.hearstapps.com/vidthumb/images/180820-bookazine-delish-01280-1536610916.jpg?crop=0.855xw%3A0.721xh%3B0%2C0.275xh&resize=480%3A270" alt="lasagna">
-        </div>
-        <h3><a href="#" class="recipe-title">Lasagna**Preview Card</a></h3> <!--<i class="fas fa-heart"></i>-->
-        <span class="data-author">Created by: Auntie M</span>
-    </div>
-
-</section>
-
-
-    <section id="add-recipe-card">
+    <section id="add-recipe-card"> <!--createModal-->
 
       <div id="screen-overlay" class="hidden"></div>
       <div id="add-recipe-modal" class="hidden">
@@ -324,8 +199,8 @@
             </div>
 
             <div class="recipe-input-element">
-                <label for="time-city-input">Total Cooking Time</label>
-                <input type="text" id="time-city-input">
+                <label for="recipe-time-input">Total Cooking Time</label>
+                <input type="text" id="recipe-time-input">
             </div>
 
             <div class="recipe-input-element">
@@ -374,54 +249,13 @@
             </div>
 
             <div class="ingredients-input-container">
-
                  <!-- *********ingredients volume in number form***********-->
                   <div class="recipe-input-element">
-                      <label for="recipe-volume-input">Ingredient Volume</label>
-                      <input type="text" id="recipe-volume-input"></input>
+                      <label for="recipe-ingredient-input">Ingredients</label>
+                      <input type="text" id="recipe-ingredient-input">
                   </div>
-
-                  <!--*********ingredients unit of measure (radio buttons?)***********-->
-                    <div class="recipe-input-element">
-                          <fieldset id="recipe-measure-fieldset" class="measure-fieldset">
-                            <legend>Unit of Measure</legend>
-                            <div>
-                              <input type="radio" name="measure-rating" id="measure-rating-easy" value="cups" checked>
-                              <label for="measure-rating-easy">Cups</label>
-                            </div>
-                            <div>
-                              <input type="radio" name="measure-rating" id="measure-rating-skills" value="tsp">
-                              <label for="measure-rating-skills">tsp</label>
-                            </div>
-                            <div>
-                              <input type="radio" name="measure-rating" id="measure-rating-chef" value="Tbsp">
-                              <label for="measure-rating-chef">Tbsp</label>
-                            </div>
-                          </fieldset>
-                    </div>
-
-                    <!--*********ingredients body***********-->
-                    <div class="recipe-input-element">
-                        <label for="ingredient-name-input">Ingredient Name</label>
-                        <input type="text" id="ingredient-name-input"></input>
-                    </div>
-
-                  <!--***********button add new ingredient??***********-->
-                    <div class="modal-footer">
-                        <button type="button" id="add-ing-line" class="add-line-button"> + New Ingredient</button>
-                    </div>
             </div>
-
-
               <div class="directions-input-container">
-
-                  <!--************number of steps?***********
-                  <div class="recipe-input-element">
-                    <label for="recipe-num-directions-input">Directions</label>
-                    <input type="text" id="recipe-num-directions-input"></input>
-                  </div>
-                -->
-                
                   <!--*********directions body***********-->
                     <div class="recipe-input-element">
                         <label for="recipe-directions-input">Directions</label>
@@ -435,6 +269,111 @@
 
           <div class="modal-footer">
             <button type="button" id="modal-accept" class="action-button">Create Post</button>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+    <section id="edit-recipe-card"> <!--createModal-->
+
+      <div id="screen-overlay" class="hidden"></div>
+      <div id="edit-recipe-modal" class="hidden">
+        <div class="edit-modal">
+
+          <div class="edit-recipe-modal-header">
+            <h3>Edit A Recipe Card</h3>
+            <button type="button-x" id="edit-modal-close-x" class="edit-modal-hide-button-x">&times;</button>
+          </div>
+
+          <div class="edit-recipe-modal-body">
+
+            <div class="edit-recipe-input-element">
+              <label for="edit-recipe-title-input">Recipe Name</label>
+              <input type="text" id="edit-recipe-title-input"></input>
+            </div>
+
+            <div class="edit-recipe-input-element">
+              <label for="edit-recipe-photo-input">Photo URL</label>
+              <input type="text" id="edit-recipe-photo-input">
+            </div>
+
+            <div class="edit-recipe-input-element">
+              <label for="edit-recipe-size-input">Recipe Size (# of people)</label>
+              <input type="number" id="edit-recipe-size-input">
+            </div>
+
+            <div class="edit-recipe-input-element">
+                <label for="edit-recipe-time-input">Total Cooking Time</label>
+                <input type="text" id="edit-recipe-time-input">
+            </div>
+
+            <div class="edit-recipe-input-element">
+                <label for="edit-recipe-author-input">Recipe Author</label>
+                <input type="text" id="edit-recipe-author-input">
+            </div>
+
+            <div class="edit-recipe-input-element">
+                <fieldset id="edit-recipe-difficulty-fieldset" class="edit-difficulty-fieldset">
+                  <legend>Difficulty Level</legend>
+                  <div>
+                    <input type="radio" name="edit-difficulty-rating" id="edit-difficulty-rating-easy" value="easy" checked>
+                    <label for="edit-ifficulty-rating-easy">Easy Street</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="edit-difficulty-rating" id="edit-difficulty-rating-skills" value="skills">
+                    <label for="edit-difficulty-rating-skills">Got Skills</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="edit-difficulty-rating" id="edit-difficulty-rating-chef" value="chef">
+                    <label for="edit-difficulty-rating-chef">Top Chef</label>
+                  </div>
+                </fieldset>
+            </div>
+
+            <div class="edit-recipe-input-element">
+              <fieldset id="edit-recipe-spice-fieldset" class="edit-spice-fieldset">
+                <legend>Spice Level</legend>
+                <div>
+                  <input type="radio" name="edit-spice-rating" id="edit-spice-rating-none" value="none" checked>
+                  <label for="spice-rating-none">None</label>
+                </div>
+                <div>
+                  <input type="radio" name="edit-spice-rating" id="edit-spice-rating-mild" value="mild">
+                  <label for="spice-rating-mild">Mild</label>
+                </div>
+                <div>
+                  <input type="radio" name="edit-spice-rating" id="edit-spice-rating-medium" value="medium">
+                  <label for="edit-spice-rating-medium">Medium</label>
+                </div>
+                <div>
+                  <input type="radio" name="edit-spice-rating" id="edit-spice-rating-hot" value="hot">
+                  <label for="edit-spice-rating-hot">Hot</label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="edit-ingredients-input-container">
+                 <!-- *********ingredients volume in number form***********-->
+                  <div class="edit-recipe-input-element">
+                      <label for="edit-recipe-ingredient-input">Ingredients</label>
+                      <input type="text" id="edit-recipe-ingredient-input">
+                  </div>
+            </div>
+              <div class="edit-directions-input-container">
+                  <!--*********directions body***********-->
+                    <div class="edit-recipe-input-element">
+                        <label for="edit-recipe-directions-input">Directions</label>
+                        <input type="text" id="edit-recipe-directions-input"></input>
+                    </div>
+              </div>
+
+                <!------------->
+
+          </div>
+
+          <div class="edit-modal-footer">
+            <button type="button" id="edit-modal-accept" class="edit-action-button">Create Post</button>
           </div>
 
         </div>
