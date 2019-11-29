@@ -100,11 +100,21 @@ header{
 #meal-tabs li a{
     display: block;
     color:black;
+    background-color: #BCBDC1;
     text-align: center;
-    padding: 26px, 10px;
+    padding: 10px;
     text-decoration: none;
+    margin-top: 15px;
+    margin-right: 10px;
+    font-family: 'Crete Round', serif;
 }
 
 #meal-tabs li a:hover{
     background-color: #FD671A;
+    color: white;
+}
+
+#meal-tabs li:last-child a:hover{
+    background-color: darkred;
+    color: white;
 }
