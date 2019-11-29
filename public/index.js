@@ -19,6 +19,7 @@ var lunchTab;
 var dinnerTab;
 
 var recipeEditModal = document.querySelector("#edit-recipe-modal");
+var editLoop = document.getElementsByName('edit-recipe');
 var editCheck;
 
 function searchRecipe(){
@@ -84,6 +85,7 @@ function toggleEditModal(){
     document.querySelector("#edit-spice-rating-none").checked = true;
     document.querySelector("#edit-recipe-ingredient-input").value = "";
     document.querySelector("#edit-recipe-directions-input").value = "";
+    
 }
 function toggleAddModal(){
     createModal.classList.toggle('hidden');
@@ -181,7 +183,38 @@ function EditModal(){
     var editRecipeSize = Number(recipeEdit[editCheck].getAttribute("data-people-served"));
     var editRecipeTime = Number(recipeEdit[editCheck].getAttribute("data-cook-time"));
     var editRecipeAuthor = String(recipeEdit[editCheck].getAttribute("data-author"));
-    var editDifficulty;
+    switch(String(recipeEdit[editCheck].getAttribute("data-difficulty"))){
+        case "Easy Street":{
+            document.querySelector("#edit-difficulty-rating-easy").checked = true;
+            break;
+        }
+        case "Got Skills":{
+            document.querySelector("#edit-difficulty-rating-skills").checked = true;
+            break;
+        }
+        case "Top Chef":{
+            document.querySelector("#edit-difficulty-rating-chef").checked = true;
+            break;
+        }
+    }
+    switch(String(recipeEdit[editCheck].getAttribute("data-spice"))){
+        case "None":{
+            document.querySelector("#edit-spice-rating-none").checked = true;
+            break;
+        }
+        case "Mild":{
+            document.querySelector("#edit-spice-rating-mild").checked = true;
+            break;
+        }
+        case "Medium":{
+            document.querySelector("#edit-spice-rating-medium").checked = true;
+            break;
+        }
+        case "Hot":{
+            document.querySelector("#edit-spice-rating-hot").checked = true;
+            break;
+        }
+    }
     var editSpice;
     var editIngredients = String(recipeEdit[editCheck].getAttribute("data-ingredients"));
     var editDirections = String(recipeEdit[editCheck].getAttribute("data-directions"));
@@ -223,6 +256,11 @@ function editRecipeModal(){
     recipeEdit[editCheck].setAttribute('data-author',document.querySelector("#edit-recipe-author-input").value);
     var editSpan = recipeEdit[editCheck].getElementsByTagName('span');
     editSpan[0].textContent = "Created by: "+ document.querySelector("#edit-recipe-author-input").value;
+    for(i=0;i<recipeEdit.length;i++){
+        if(editLoop[i].checked){
+            editLoop[i].checked = false;
+        }
+    }
     toggleEditModal();
 }
 function DisplayModal(){
