@@ -136,3 +136,78 @@ The active tab by default being the ALL tab*/
     background-color: darkred;
     color: white;
 }
+
+/*Recipe Card styling*/
+#recipe-cards{
+    display: flex;
+    background-color: #ffefc7;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+.recipe-image-container{
+    display: flex;
+    justify-content: center;
+}
+
+.recipe-image-container img{
+    display: flex;
+    width: 50%;
+    height: 50%;
+    border-radius: 10px;
+    border: 3px solid black;
+}
+
+.recipe-title{
+    display: flex;
+    justify-self: flex-start;
+    font-family: 'Crete Round', serif;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 36px;
+    margin: 25px;
+}
+
+.data-cook-time{
+    font-family: 'Asap', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-right: 1px solid black;
+}
+
+.data-people-served{
+    font-family: 'Asap', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-right: 1px solid black;
+}
+
+.data-difficulty{
+    font-family: 'Asap', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    padding-left: 25px;
+}
+
+.data-ingredients{
+    font-family: 'Asap', sans-serif;
+    padding-left: 45px;
+    font-size: 14px;
+}
+
+.data-directions p{
+    font-family: 'Asap', sans-serif;
+    padding-left: 25px;
+    font-size: 14px;
+}
+
+.data-author{
+    font-family: 'Asap', sans-serif;
+    margin-left: 25px;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
