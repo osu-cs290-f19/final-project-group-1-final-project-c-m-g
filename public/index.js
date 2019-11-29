@@ -2,9 +2,9 @@
 index.js file for index.html, will eventually be replaced with handlebars, but this is basic implementation before we continue
 */
 var createModal = document.querySelector("#add-recipe-modal");
-var editModal = document.getElementById("edit-recipe-button");
+var editModal = document.getElementById("edit-recipe-card");
 var cancelEdit = document.querySelector("#edit-modal-close-x");
-var displayModal;
+var displayModal = document.querySelector("#recipe-cards");
 var modalBackdrop = document.querySelector("#screen-overlay");
 var cancelRecipe = document.querySelector("#modal-close-x");
 var createRecipe = document.getElementById("modal-accept");
@@ -12,6 +12,7 @@ var editRecipe = document.getElementById('edit-modal-accept');
 var searchButton = document.getElementById("search-button");
 var addIngredientButton = document.getElementById("add-ing-line");
 var showCreateModal = document.querySelector("#add-recipe-button");
+var shwoRecipe = document.querySelector("#show-recipe-button");
 
 var allTab;
 var breakfastTab;
@@ -264,7 +265,33 @@ function editRecipeModal(){
     toggleEditModal();
 }
 function DisplayModal(){
-
+    displayModal.classList.toggle("hidden");
+    recipeEdit = document.getElementsByClassName("recipe-preview-container");
+    for(i=0;i<recipeEdit.length;i++){
+        if(editLoop[i].checked){
+            editCheck=Number(i);
+        }
+    }
+    console.log(recipeEdit[editCheck]);
+    var recipePopped = document.getElementsByClassName("recipes");
+    console.log(recipePopped);
+    recipePopped[0].setAttribute("data-cook-time",recipeEdit[editCheck].getAttribute("data-cook-time"));
+    recipePopped[0].setAttribute("data-people-served",recipeEdit[editCheck].getAttribute("data-people-served"));
+    recipePopped[0].setAttribute("data-difficulty",recipeEdit[editCheck].getAttribute("data-difficulty"));
+    recipePopped[0].setAttribute("data-spice",recipeEdit[editCheck].getAttribute("data-spice"));
+    recipePopped[0].setAttribute("data-ingredients",recipeEdit[editCheck].getAttribute("data-ingredients"));
+    recipePopped[0].setAttribute("data-directions",recipeEdit[editCheck].getAttribute("data-directions"));
+    recipePopped[0].setAttribute("data-author",recipeEdit[editCheck].getAttribute("data-author"));
+    var poppedImg = recipePopped[0].getElementsByTagName("img");
+    poppedImg[0].src = recipeEdit[editCheck].getElementsByTagName("img")[0].src;
+    poppedImg[0].setAttribute("alt",recipeEdit[editCheck].getElementsByTagName("img")[0].getAttribute("alt"));
+    recipePopped[0].getElementsByTagName("a")[0].textContent = recipeEdit[editCheck].getElementsByTagName('a')[0].textContent;
+    recipePopped[0].getElementsByTagName("span")[0].textContent = recipeEdit[editCheck].getAttribute("data-cook-time")+" Minutes";
+    recipePopped[0].getElementsByTagName("span")[1].textContent = recipeEdit[editCheck].getAttribute("data-people-served")+ " People Served";
+    recipePopped[0].getElementsByTagName("span")[2].textContent = "Difficulty: "+ recipeEdit[editCheck].getAttribute("data-difficulty");
+    recipePopped[0].getElementsByTagName("li")[0].textContent = "Ingredients: \n" + recipeEdit[editCheck].getAttribute("data-ingredients");
+    recipePopped[0].getElementsByTagName("p")[0].textContent = "Instructions: \n" + recipeEdit[editCheck].getAttribute("data-directions");
+    recipePopped[0].getElementsByTagName("span")[6].textContent = "Created by: " + recipeEdit[editCheck].getAttribute("data-author");
 }
 showCreateModal.addEventListener('click',toggleAddModal);
 searchButton.addEventListener('click',searchRecipe);
@@ -273,3 +300,4 @@ createRecipe.addEventListener('click',CreateModal);
 editRecipe.addEventListener('click',editRecipeModal);
 editModal.addEventListener('click',EditModal);
 cancelEdit.addEventListener('click',toggleEditModal);
+shwoRecipe.addEventListener('click',DisplayModal);
