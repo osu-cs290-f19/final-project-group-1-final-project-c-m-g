@@ -112,6 +112,7 @@
         
         <button type="button" id="add-recipe-button" class="action-button">Add Recipe</button>
         <button type="button" id="edit-recipe-button" class="action-button">Edit Recipe</button>
+        <button type="button" id="show-recipe-button" class="action-button">Show Recipe</button>
         <!--content here?? not sure if we actually need this
         <div id="content"> 
             <div id="tab-all"></div>
@@ -161,12 +162,12 @@
 
     <section class="recipe-preview">
 
-        <div class="recipe-preview-container" data-cook-time="45" data-people-served="12" data-difficulty="Got Skills" data-spice="{}" data-ingredients="{}"data-directions="{}"data-author="Grandma B"><!--changed from recipe-card-container *** will this cause access issues??-->
+        <div class="recipe-preview-container" data-cook-time="45" data-people-served="12" data-difficulty="Got Skills" data-spice="Mild" data-ingredients="1 cat"data-directions="Don't eat it"data-author="Satan"><!--changed from recipe-card-container *** will this cause access issues??-->
             <div class="recipe-preview-image-container">
               <img src="https://placekitten.com/200/300" alt="a cute kitten">
             </div>
-            <h3><a href="#" class="recipe-preview-title">Recipe Title**Preview</a></h3> <!--<i class="fas fa-heart"></i>-->
-            <span class="preview-data-author">Created by: Grandma B</span>
+            <h3><a href="#" class="recipe-preview-title">Cutie Kitten</a></h3> <!--<i class="fas fa-heart"></i>-->
+            <span class="preview-data-author">Created by: Satan</span>
             <input type="checkbox" name="edit-recipe" value="edit">
         </div>
 
@@ -174,7 +175,7 @@
 
     <section id="add-recipe-card"> <!--createModal-->
 
-      <div id="screen-overlay" class="hidden"></div>
+      <div id="screen-overlay" hidden = true></div>
       <div id="add-recipe-modal" class="hidden">
         <div class="add-modal">
 
@@ -278,7 +279,7 @@
 
     </section>
 
-    <section id="edit-recipe-card"> <!--EditModal-->
+    <section id="edit-recipe-card" class="hidden"> <!--EditModal-->
 
       <div id="screen-overlay" class="hidden"></div>
       <div id="edit-recipe-modal" class="hidden">
