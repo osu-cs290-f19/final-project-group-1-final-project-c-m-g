@@ -98,7 +98,7 @@
 
 <section id="meal-tabs">
     <!--need 4 tabs and add button button here-->
-    <div class="tabs" data-meal="{}"></div><!--not sure if we need any data attribute handlebars or not-->
+    <div class="tabs" data-meal-tabs="{}"></div><!--not sure if we need any data attribute handlebars or not-->
         <ul id="tabs">
             <li><a href="#" name="tab-all">All</a></li>
             <li><a href="#" name="tab-breakfast">Breakfast</a></li>
@@ -132,7 +132,7 @@
 
       <div class="recipe-cards-popped">
 
-        <div class="recipes" data-cook-time="{}" data-people-served="{}" data-difficulty="{}" data-spice="{}" data-ingredients="{}"data-directions="{}"data-author="{}">
+        <div class="recipes" data-cook-time="{}" data-people-served="{}" data-difficulty="{}" data-spice="{}" data-ingredients="{}"data-directions="{}"data-author="{}" data-meal="{}">
           <div class="recipe-contents">
             <div class="recipe-image-container">
               <img src="{}" alt="{}">
@@ -162,7 +162,7 @@
 
     <section class="recipe-preview">
 
-        <div class="recipe-preview-container" data-cook-time="45" data-people-served="12" data-difficulty="Got Skills" data-spice="Mild" data-ingredients="1 cat"data-directions="Don't eat it"data-author="Satan"><!--changed from recipe-card-container *** will this cause access issues??-->
+        <div class="recipe-preview-container" data-cook-time="45" data-people-served="12" data-difficulty="Got Skills" data-spice="Mild" data-ingredients="1 cat"data-directions="Don't eat it"data-author="Satan" data-meal=""><!--changed from recipe-card-container *** will this cause access issues??-->
             <div class="recipe-preview-image-container">
               <img src="https://placekitten.com/200/300" alt="a cute kitten">
             </div>
@@ -247,6 +247,24 @@
                 <div>
                   <input type="radio" name="spice-rating" id="spice-rating-hot" value="Hot">
                   <label for="spice-rating-hot">Hot</label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="recipe-input-element">
+              <fieldset id="recipe-meal-fieldset" class="meal-fieldset">
+                <legend>Which Meal?</legend>
+                <div>
+                  <input type="radio" name="meal-time" id="meal-time-breakfast" value="Breakfast" checked>
+                  <label for="meal-time-breakfast">Breakfast</label>
+                </div>
+                <div>
+                  <input type="radio" name="meal-time" id="meal-time-lunch" value="Lunch">
+                  <label for="meal-time-lunch">Lunch</label>
+                </div>
+                <div>
+                  <input type="radio" name="meal-time" id="meal-time-dinner" value="Dinner">
+                  <label for="meal-time-dinner">Dinner</label>
                 </div>
               </fieldset>
             </div>
@@ -353,6 +371,23 @@
                 <div>
                   <input type="radio" name="edit-spice-rating" id="edit-spice-rating-hot" value="Hot">
                   <label for="edit-spice-rating-hot">Hot</label>
+                </div>
+              </fieldset>
+            </div>
+            <div class="edit-recipe-input-element">
+              <fieldset id="edit-recipe-meal-fieldset" class="edit-meal-fieldset">
+                <legend>Which Meal?</legend>
+                <div>
+                  <input type="radio" name="edit-meal-time" id="edit-meal-time-breakfast" value="Breakfast" checked>
+                  <label for="edit-meal-time-breakfast">Breakfast</label>
+                </div>
+                <div>
+                  <input type="radio" name="edit-meal-time" id="edit-meal-time-lunch" value="Lunch">
+                  <label for="edit-meal-time-lunch">Lunch</label>
+                </div>
+                <div>
+                  <input type="radio" name="edit-meal-time" id="edit-meal-time-dinner" value="Dinner">
+                  <label for="edit-meal-time-dinner">Dinner</label>
                 </div>
               </fieldset>
             </div>
