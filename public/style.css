@@ -97,6 +97,7 @@ header{
     float: left;
 }
 
+/*This is the styling for all the meal tabs by default*/
 #meal-tabs li a{
     display: block;
     color:black;
@@ -107,6 +108,8 @@ header{
     margin-top: 15px;
     margin-right: 10px;
     font-family: 'Crete Round', serif;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 
 #meal-tabs li a:hover{
@@ -114,6 +117,21 @@ header{
     color: white;
 }
 
+/*Temporary fix for an active tab by default.
+The active tab by default being the ALL tab*/
+#meal-tabs li:first-child a{
+    display: block;
+    color: white;
+    background-color: #FD671A;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    margin-top: 15px;
+    margin-right: 10px;
+    font-family: 'Crete Round', serif;
+}
+
+/*When hovering over the Add Recipe tab*/
 #meal-tabs li:last-child a:hover{
     background-color: darkred;
     color: white;
