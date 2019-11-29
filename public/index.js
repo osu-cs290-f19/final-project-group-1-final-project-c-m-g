@@ -23,6 +23,43 @@ var recipeEditModal = document.querySelector("#edit-recipe-modal");
 var editLoop = document.getElementsByName('edit-recipe');
 var editCheck;
 
+
+function allTabSort(){
+    var recipeSort = document.getElementsByClassName("recipe-preview-container");
+    for(i=recipeSort.length-1;i>=0;i--){
+        if(recipeSort[i].getAttribute("hidden")==true){
+            recipeSort[i].setAttribute("hidden",false);
+        }
+    }
+}
+function breakfastTabSort(){
+    allTabSort();
+    var recipeSort = document.getElementsByClassName("recipe-preview-container");
+    for(i = recipeSort.length;i>=0;i--){
+        if(recipeSort[i].getAttribute("data-meal")!= "Breakfast"){
+            recipeSort[i].setAttribute("hidden",true);
+        }
+    }
+}
+function lunchTabSort(){
+    allTabSort();
+    var recipeSort = document.getElementsByClassName("recipe-preview-container");
+    for(i = recipeSort.length;i>=0;i--){
+        if(recipeSort[i].getAttribute("data-meal")!= "Lunch"){
+            recipeSort[i].setAttribute("hidden",true);
+        }
+    }
+}
+function dinnerTabSort(){
+    allTabSort();
+    var recipeSort = document.getElementsByClassName("recipe-preview-container");
+    for(i = recipeSort.length;i>=0;i--){
+        if(recipeSort[i].getAttribute("data-meal")!= "Dinner"){
+            recipeSort[i].setAttribute("hidden",true);
+        }
+    }
+}
+
 function searchRecipe(){
     var searchTitle = String(document.querySelector("#search-title").value);
     var maxTime = Number(document.querySelector("#max-time").value);
@@ -122,6 +159,13 @@ function CreateModal(){
             recipeSpice = recipeSpiceLoop[i].value;
         }
     }
+    var recipeMeal;
+    var recipeMealLoop = document.getElementsByName("meal-time");
+    for(i=0;i<recipeMealLoop.length;i++){
+        if(recipeMealLoop[i].checked){
+            recipeMeal = recipeMealLoop[i].value;
+        }
+    }
     var recipeIngredient = document.querySelector("#recipe-ingredient-input").value;
     var recipeDirection = document.querySelector("#recipe-directions-input").value;
 
@@ -134,6 +178,7 @@ function CreateModal(){
     recipeDiv.setAttribute('data-ingredients',recipeIngredient);
     recipeDiv.setAttribute('data-directions',recipeDirection);
     recipeDiv.setAttribute('data-author',recipeAuthor);
+    recipeDiv.setAttribute('data-meal',recipeMeal);
 
     var recipeImageContainerDiv = document.createElement('div');
     recipeImageContainerDiv.classList.add('recipe-image-container');
@@ -216,7 +261,20 @@ function EditModal(){
             break;
         }
     }
-    var editSpice;
+    switch(String(recipeEdit[editCheck].getAttribute("data-meal"))){
+        case "Breakfast": {
+            document.querySelector("#edit-meal-time-breakfast").checked = true;
+            break;
+        }
+        case "Lunch": {
+            document.querySelector("#edit-meal-time-lunch").checked = true;
+            break;
+        }
+        case "Dinner": {
+            document.querySelector("#edit-meal-time-breakfast").checked = true;
+            break;
+        }
+    }
     var editIngredients = String(recipeEdit[editCheck].getAttribute("data-ingredients"));
     var editDirections = String(recipeEdit[editCheck].getAttribute("data-directions"));
 
@@ -250,11 +308,19 @@ function editRecipeModal(){
             recipeSpiceEdit = recipeSpiceLoopEdit[i].value;
         }
     }
+    var recipeMealEdit;
+    var recipeMealLoopEdit = document.getElementsByName("edit-meal-time");
+    for(i=0;i<recipeMealLoopEdit.length;i++){
+        if(recipeMealLoopEdit[i].checked){
+            recipeMealEdit = recipeMealLoopEdit[i].value;
+        }
+    }
     recipeEdit[editCheck].setAttribute('data-difficulty',recipeDifficultyEdit);
     recipeEdit[editCheck].setAttribute('data-spice',recipeSpiceEdit);
     recipeEdit[editCheck].setAttribute('data-ingredients',document.querySelector("#edit-recipe-ingredient-input").value);
     recipeEdit[editCheck].setAttribute('data-directions',document.querySelector("#edit-recipe-directions-input").value);
     recipeEdit[editCheck].setAttribute('data-author',document.querySelector("#edit-recipe-author-input").value);
+    recipeEdit[editCheck].setAttribute('data-meal',recipeMealEdit);
     var editSpan = recipeEdit[editCheck].getElementsByTagName('span');
     editSpan[0].textContent = "Created by: "+ document.querySelector("#edit-recipe-author-input").value;
     for(i=0;i<recipeEdit.length;i++){
@@ -282,6 +348,7 @@ function DisplayModal(){
     recipePopped[0].setAttribute("data-ingredients",recipeEdit[editCheck].getAttribute("data-ingredients"));
     recipePopped[0].setAttribute("data-directions",recipeEdit[editCheck].getAttribute("data-directions"));
     recipePopped[0].setAttribute("data-author",recipeEdit[editCheck].getAttribute("data-author"));
+    recipePopped[0].setAttribute("data-meal",recipeEdit[editCheck].getAttribute("data-meal"));
     var poppedImg = recipePopped[0].getElementsByTagName("img");
     poppedImg[0].src = recipeEdit[editCheck].getElementsByTagName("img")[0].src;
     poppedImg[0].setAttribute("alt",recipeEdit[editCheck].getElementsByTagName("img")[0].getAttribute("alt"));
