@@ -3,9 +3,10 @@ index.js file for index.html, will eventually be replaced with handlebars, but t
 */
 var createModal = document.querySelector("#add-recipe-modal");
 var editModal = document.getElementById("edit-recipe-button");
+var cancelEdit = document.querySelector("#edit-modal-close-x");
 var displayModal;
 var modalBackdrop = document.querySelector("#screen-overlay");
-var cancelRecipe = document.querySelector("#modal-hide-button");
+var cancelRecipe = document.querySelector("#modal-close-x");
 var createRecipe = document.getElementById("modal-accept");
 var editRecipe = document.getElementById('edit-modal-accept');
 var searchButton = document.getElementById("search-button");
@@ -17,7 +18,7 @@ var breakfastTab;
 var lunchTab;
 var dinnerTab;
 
-var recipeEdit;
+var recipeEditModal = document.querySelector("#edit-recipe-modal");
 var editCheck;
 
 function searchRecipe(){
@@ -71,7 +72,19 @@ function searchRecipe(){
         }
     }
 }
-
+function toggleEditModal(){
+    recipeEditModal.classList.toggle("hidden");
+    modalBackdrop.classList.toggle("hidden");
+    document.querySelector("#edit-recipe-title-input").value = "";
+    document.querySelector("#edit-recipe-photo-input").value = "";
+    document.querySelector("#edit-recipe-size-input").value = "";
+    document.querySelector("#edit-recipe-time-input").value = "";
+    document.querySelector("#edit-recipe-author-input").value = "";
+    document.querySelector("#edit-difficulty-rating-easy").checked = true;
+    document.querySelector("#edit-spice-rating-none").checked = true;
+    document.querySelector("#edit-recipe-ingredient-input").value = "";
+    document.querySelector("#edit-recipe-directions-input").value = "";
+}
 function toggleAddModal(){
     createModal.classList.toggle('hidden');
     modalBackdrop.classList.toggle('hidden');
@@ -107,7 +120,6 @@ function CreateModal(){
         }
     }
     var recipeIngredient = document.querySelector("#recipe-ingredient-input").value;
-    console.log(recipeIngredient);
     var recipeDirection = document.querySelector("#recipe-directions-input").value;
 
     var recipeDiv = document.createElement('div');
@@ -149,17 +161,14 @@ function CreateModal(){
     recipeEdit.setAttribute("value","edit");
     recipeDiv.appendChild(recipeEdit);
     
-    console.log(recipeDiv);
-
     var recipeContainer = document.getElementsByClassName('recipe-preview');
-    console.log(recipeContainer);
     recipeContainer[0].appendChild(recipeDiv);
     toggleAddModal();
 }
 
 function EditModal(){
+    toggleEditModal();
     recipeEdit = document.getElementsByClassName("recipe-preview-container");
-    editCheck;
     var editLoop = document.getElementsByName('edit-recipe');
     for(i=0;i<recipeEdit.length;i++){
         if(editLoop[i].checked){
@@ -189,15 +198,40 @@ function editRecipeModal(){
     var previewTitle = recipeEdit[editCheck].getElementsByTagName("a");
     previewTitle[0].textContent = document.querySelector("#edit-recipe-title-input").value;
     var imgEdit = recipeEdit[editCheck].getElementsByTagName("img");
+    imgEdit[0].src = document.querySelector("#edit-recipe-photo-input").value;
     imgEdit[0].setAttribute("alt",document.querySelector("#edit-recipe-title-input").value);
     recipeEdit[editCheck].setAttribute('data-people-served',document.querySelector("#edit-recipe-size-input").value);
+    recipeEdit[editCheck].setAttribute('data-cook-time',document.querySelector("#edit-recipe-time-input").value);
+    var recipeDifficultyEdit;
+    var recipeDifficultyLoopEdit = document.getElementsByName("edit-difficulty-rating");
+    for(i=0;i<recipeDifficultyLoopEdit.length;i++){
+        if(recipeDifficultyLoopEdit[i].checked){
+            recipeDifficultyEdit = recipeDifficultyLoopEdit[i].value;
+        }
+    }
+    var recipeSpiceEdit;
+    var recipeSpiceLoopEdit = document.getElementsByName("edit-spice-rating");
+    for(i=0;i<recipeSpiceLoopEdit.length;i++){
+        if(recipeSpiceLoopEdit[i].checked){
+            recipeSpiceEdit = recipeSpiceLoopEdit[i].value;
+        }
+    }
+    recipeEdit[editCheck].setAttribute('data-difficulty',recipeDifficultyEdit);
+    recipeEdit[editCheck].setAttribute('data-spice',recipeSpiceEdit);
+    recipeEdit[editCheck].setAttribute('data-ingredients',document.querySelector("#edit-recipe-ingredient-input").value);
+    recipeEdit[editCheck].setAttribute('data-directions',document.querySelector("#edit-recipe-directions-input").value);
+    recipeEdit[editCheck].setAttribute('data-author',document.querySelector("#edit-recipe-author-input").value);
+    var editSpan = recipeEdit[editCheck].getElementsByTagName('span');
+    editSpan[0].textContent = "Created by: "+ document.querySelector("#edit-recipe-author-input").value;
+    toggleEditModal();
 }
 function DisplayModal(){
 
 }
 showCreateModal.addEventListener('click',toggleAddModal);
 searchButton.addEventListener('click',searchRecipe);
-//cancelRecipe.addEventListener('click',toggleModal);
+cancelRecipe.addEventListener('click',toggleAddModal);
 createRecipe.addEventListener('click',CreateModal);
 editRecipe.addEventListener('click',editRecipeModal);
 editModal.addEventListener('click',EditModal);
+cancelEdit.addEventListener('click',toggleEditModal);
