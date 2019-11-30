@@ -218,7 +218,6 @@ The active tab by default being the ALL tab*/
     border: 3px solid black;
     border-radius: 10px;
     width: 15%;
-    height: 100%;
     margin: 10px;
     background-color: #BCBDC1;
 }
@@ -230,7 +229,8 @@ The active tab by default being the ALL tab*/
 }
 
 .recipe-preview-image-container img{
-    width: auto;
+    min-width: 100%;
+    height: auto;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     scale: 100%;
@@ -254,4 +254,19 @@ The active tab by default being the ALL tab*/
     font-weight: bold;
     font-size: 16px;
     margin: 10px;
+}
+.preview-edit-recipe-text{
+    display: flex;
+    justify-self: right;
+    font-family: 'Crete Round', serif;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 10px;
+}
+
+.preview-edit-checkbox{
+    display: flex;
+    position: relative;
+    justify-self: right;
 }
