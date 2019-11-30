@@ -143,6 +143,7 @@ The active tab by default being the ALL tab*/
     background-color: #ffefc7;
     border-radius: 20px;
     padding: 25px;
+    width: 50%;
 }
 
 .recipe-image-container{
@@ -210,4 +211,47 @@ The active tab by default being the ALL tab*/
     margin-left: 25px;
     margin-bottom: 25px;
     font-size: 14px;
+}
+
+/*recipe-preview styling*/
+.recipe-preview{
+    border: 3px solid black;
+    border-radius: 10px;
+    width: 15%;
+    height: 100%;
+    margin: 10px;
+    background-color: #BCBDC1;
+}
+
+.recipe-preview-image-container{
+    display: flex;
+    justify-content: center;
+    border-bottom: 3px solid black;
+}
+
+.recipe-preview-image-container img{
+    width: auto;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    scale: 100%;
+}
+
+.recipe-preview-title{
+    display: flex;
+    justify-self: right;
+    font-family: 'Crete Round', serif;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 10px;
+}
+
+.preview-data-author{
+    display: flex;
+    justify-self: right;
+    font-family: 'Asap', sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 10px;
 }
