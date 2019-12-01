@@ -264,6 +264,7 @@ The active tab by default being the ALL tab*/
     margin-left: 25px;
     margin-bottom: 25px;
     font-size: 14px;
+    font-weight: bold;
 }
 
 /*recipe-preview styling*/
