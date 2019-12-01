@@ -84,6 +84,7 @@ header{
     font-size: x-large;
 }
 
+/*meal tabs styling*/
 #meal-tabs ul{
     list-style-type: none;
     display: inline;
@@ -135,6 +136,58 @@ The active tab by default being the ALL tab*/
 #meal-tabs li:last-child a:hover{
     background-color: darkred;
     color: white;
+}
+
+/*Add, edit and show recipe buttons styling*/
+#add-recipe-button{
+    display: inline-block;
+    padding: 10px;
+    background-color: darkred;
+    color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    font-family: 'Crete Round', serif;
+    font-size: large;
+    margin: 5px;
+}
+
+#add-recipe-button:hover{
+    background-color: white;
+    color: red;
+}
+
+#edit-recipe-button{
+    display: inline-block;
+    padding: 10px;
+    background-color: #FD671A;
+    color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    font-family: 'Crete Round', serif;
+    font-size: large;
+    margin: 5px;
+}
+
+#edit-recipe-button:hover{
+    background-color: white;
+    color: #FD671A;
+}
+
+#show-recipe-button{
+    display: inline-block;
+    padding: 10px;
+    background-color: #BCBDC1;
+    color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    font-family: 'Crete Round', serif;
+    font-size: large;
+    margin: 5px;
+}
+
+#show-recipe-button:hover{
+    background-color: white;
+    color: black;
 }
 
 /*Recipe Card styling*/
