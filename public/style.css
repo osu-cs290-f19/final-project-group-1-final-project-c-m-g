@@ -374,7 +374,7 @@ The active tab by default being the ALL tab*/
     display: flex;
     justify-content: right;
     padding: 5px;
-    padding-right: 300px;
+    padding-right: auto;
     border-radius: 10px;
     border: 1px solid black;
 }
