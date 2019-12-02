@@ -197,8 +197,14 @@ The active tab by default being the ALL tab*/
     background-color: #ffefc7;
     border-radius: 20px;
     padding: 25px;
-    width: 50%;
+    /* width: 50%; */
+    /* testing */
+    width: 40%;
+    margin: 40px auto;
+    z-index: 1010;
+    box-shadow: 2px 15px rgba(0, 0, 0, 0.3);
 }
+
 
 .recipe-image-container{
     display: flex;
@@ -207,8 +213,11 @@ The active tab by default being the ALL tab*/
 
 .recipe-image-container img{
     display: flex;
-    width: 50%;
-    height: 50%;
+    /* width: 50%; */
+    /* height: 50%; */
+    /* testing */
+    width: 85%;
+    height: auto;
     border-radius: 10px;
     border: 3px solid black;
 }
@@ -223,11 +232,21 @@ The active tab by default being the ALL tab*/
     margin: 25px;
 }
 
-.data-cook-time{
+/* testing */
+.labels{
     font-family: 'Asap', sans-serif;
     font-weight: bold;
     font-size: 18px;
     padding-left: 25px;
+    /* padding-right: 5px; */
+    /* border-right: 1px solid black; */
+}
+
+.data-cook-time{
+    font-family: 'Asap', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    padding-left: 10px; /*testing--was 25px*/
     padding-right: 25px;
     border-right: 1px solid black;
 }
@@ -236,7 +255,7 @@ The active tab by default being the ALL tab*/
     font-family: 'Asap', sans-serif;
     font-weight: bold;
     font-size: 18px;
-    padding-left: 25px;
+    padding-left: 10px; /*testing--was 25px*/
     padding-right: 25px;
     border-right: 1px solid black;
 }
@@ -245,7 +264,7 @@ The active tab by default being the ALL tab*/
     font-family: 'Asap', sans-serif;
     font-weight: bold;
     font-size: 18px;
-    padding-left: 25px;
+    padding-left: 10px; /*testing--was 25px*/
 }
 
 .data-ingredients{
@@ -272,7 +291,9 @@ The active tab by default being the ALL tab*/
 .recipe-preview{
     border: 3px solid black;
     border-radius: 10px;
-    width: 15%;
+    /* width: 15%; */
+    max-width: 20%;
+    padding: 20px;
     margin: 10px;
     background-color: #BCBDC1;
 }
@@ -280,14 +301,15 @@ The active tab by default being the ALL tab*/
 .recipe-preview-image-container{
     display: flex;
     justify-content: center;
-    border-bottom: 3px solid black;
+    /* border-bottom: 3px solid black; */
 }
 
 .recipe-preview-image-container img{
     min-width: 100%;
     height: auto;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+    /* border-top-right-radius: 10px; */
+    /* border-top-left-radius: 10px; */
+    border-radius: 10px;
     scale: 100%;
 }
 
@@ -338,28 +360,60 @@ The active tab by default being the ALL tab*/
     border: 3px solid black;
     background-color: #ffefc7;
     border-radius: 10px;
-    width: 25%;
+    /* testing */
+    width: auto;
+    max-width: 600px;
+    min-width: 350px;
+    min-height: 300px;
+    margin: 40px auto;
+    /* width: 50%;testing
+    /* width: 75%; */
     z-index: 1010;
 }
 
+/* testing flex container --duplicate for .edit-modal*/
+.add-recipe-modal{
+    display: flex;
+    flex-direction: row;
+}
+
+/* testing flex container --duplicate for .edit-modal*/
+.add-modal{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
 .recipe-modal-header{
     display: flex;
-    justify-content: center;
-    margin: 10px;
+    position: relative;/*testing*/
+    /* justify-content: center; */
+    justify-self: center;
+    align-self: center;
+    /* margin: 10px; */
+    margin: 3%;
+    padding: 3%;
     font-family: 'Crete Round', serif;
     font-size: x-large;
 }
 
 /*fix this*/
 #modal-close-x{
-    position: absolute;
-    right: 10px;
-    top: 5px;
-    font-size: 36px;
+    /* position: absolute; */
+    display: flex; /*testing*/
+    /* right: 10px; */
+    /* top: 5px; */
+    font-size: 46px;
     border: none;
     background: none;
     color: red;
     padding: 0;
+    /* testing */
+    /* align-self: top; */
+    /* justify-self: right; */
+    /* margin-right: 5px; */
+    margin-left: 145px;
+    margin-top: -100px;
     cursor: pointer;
 }
 
@@ -371,14 +425,41 @@ The active tab by default being the ALL tab*/
 }
 
 .recipe-input-element input{
-    display: flex;
+    /* display: flex; testing */
+    flex-flow: row wrap;
+    /* flex-flow: row; */
     justify-content: right;
     padding: 5px;
     padding-right: auto;
-    border-radius: 10px;
+    /* border-radius: 10px; */
+    border-radius: 5px;
     border: 1px solid black;
 }
 
+/* testing */
+#recipe-title-input{
+    width: 300px;
+}
+
+#recipe-photo-input{
+    width: 420px;
+}
+
+#recipe-ingredient-input{
+    /* max-width: 90%; */
+    width: 450px;
+}
+
+#recipe-directions-input{
+    /* max-width: 90%; */
+    width: 470px;
+}
+
+/* testing */
+.fieldset-group{
+    display: flex;
+    flex-direction: row;
+}
 /*fix this*/
 .recipe-input-element fieldset{
     display: inline-flex;
@@ -400,6 +481,7 @@ The active tab by default being the ALL tab*/
     border-radius: 10px;
     font-family: 'Crete Round', serif;
     font-size: x-large;
+    align-self: flex-end/*testing*/
 }
 
 #modal-accept:hover{
@@ -411,6 +493,7 @@ The active tab by default being the ALL tab*/
     font-family: 'Crete Round', serif;
     font-size: x-large;
     cursor: pointer;
+    align-self: flex-end/*testing*/
 }
 
 /*Edit Recipe Card Modal Styling*/
@@ -439,7 +522,8 @@ The active tab by default being the ALL tab*/
 
 /*fix this*/
 #edit-modal-close-x{
-    position: absolute;
+    /* position: absolute; */
+    display: flex; /*testing*/
     right: 10px;
     top: 5px;
     font-size: 36px;

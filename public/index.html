@@ -140,7 +140,11 @@
             <!--<i class="fas fa-heart"></i>
             <i class="far fa-heart"></i> **this one's empty-->
             <div class="recipe-card-container">
-                <h3><a href="#" class="recipe-title">Recipe Title**card</a></h3> <span class="data-cook-time"># Minutes</span> <span class="data-people-served"># People Served</span><span class="data-difficulty"> Easy</span>
+                <h3><a href="#" class="recipe-title">Recipe Title**card</a></h3> 
+                <!--testing labels-->
+                <label for="recipe-time" class="labels">Cooking Time:</label><span class="data-cook-time">120 Minutes</span> 
+                <label for="recipe-size" class="labels"># Servings:</label><span class="data-people-served">8</span>
+                <label for="recipe-difficulty" class="labels">Difficulty:</label><span class="data-difficulty"> Easy</span>
                 <span class="data-ingredients">
                   <ul>
                     <span class="data-ingredient-item"></span><li>
@@ -180,10 +184,11 @@
       <div id="add-recipe-modal" class="hidden">
         <div class="add-modal">
 
-          <div class="recipe-modal-header">
+         <div class="recipe-modal-header">
+           
             <h3>Add a Recipe Card to the Box</h3>
             <button type="button-x" id="modal-close-x" class="modal-hide-button-x">&times;</button>
-          </div>
+          </div> 
 
           <div class="recipe-modal-body">
 
@@ -212,6 +217,8 @@
                 <input type="text" id="recipe-author-input">
             </div>
 
+            <!-- testing added div around all fieldsets -->
+           <div class="fieldset-group">
             <div class="recipe-input-element">
                 <fieldset id="recipe-difficulty-fieldset" class="difficulty-fieldset">
                   <legend>Difficulty Level</legend>
@@ -269,6 +276,8 @@
                 </div>
               </fieldset>
             </div>
+          </div>
+          <!-- end fieldset group^^^ -->
 
             <div class="ingredients-input-container">
                  <!-- *********ingredients volume in number form***********-->
