@@ -155,6 +155,7 @@ The active tab by default being the ALL tab*/
 #add-recipe-button:hover{
     background-color: white;
     color: red;
+    cursor: pointer;
 }
 
 #edit-recipe-button{
@@ -172,6 +173,7 @@ The active tab by default being the ALL tab*/
 #edit-recipe-button:hover{
     background-color: white;
     color: #FD671A;
+    cursor: pointer;
 }
 
 #show-recipe-button{
@@ -189,6 +191,7 @@ The active tab by default being the ALL tab*/
 #show-recipe-button:hover{
     background-color: white;
     color: black;
+    cursor: pointer;
 }
 
 #delete-recipe-button{
