@@ -113,6 +113,7 @@
         <button type="button" id="add-recipe-button" class="action-button">Add Recipe</button>
         <button type="button" id="edit-recipe-button" class="action-button">Edit Recipe</button>
         <button type="button" id="show-recipe-button" class="action-button">Show Recipe</button>
+        <button type="button" id="delete-recipe-button" class="action-button">Delete Recipe</button>
         <!--content here?? not sure if we actually need this
         <div id="content"> 
             <div id="tab-all"></div>
@@ -128,11 +129,11 @@
 
 
 <!--DOM for recipe card after being clicked on and enlarged-->
-    <section id="recipe-cards">
+    <section id="recipe-cards" class = "hidden">
 
-      <div class="recipe-cards-popped">
+      <div class="recipe-cards-popped" class = "hidden">
 
-        <div class="recipes" data-cook-time="{}" data-people-served="{}" data-difficulty="{}" data-spice="{}" data-ingredients="{}"data-directions="{}"data-author="{}" data-meal="{}">
+        <div class="recipes" data-cook-time="{}" data-people-served="{}" data-difficulty="{}" data-spice="{}" data-ingredients="{}"data-directions="{}"data-author="{}" data-meal="{}" class = "hidden">
           <div class="recipe-contents">
             <div class="recipe-image-container">
               <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2013/6/28/0/FNK_Apple-Pie_s4x3.jpg.rend.hgtvcom.826.620.suffix/1382545039107.jpeg" alt="pie">
@@ -178,9 +179,9 @@
 
     </section>
 
-    <section id="add-recipe-card"> <!--createModal-->
+    <section id="add-recipe-card" class = "hidden"> <!--createModal-->
 
-      <div id="screen-overlay" hidden = true></div>
+      <div id="screen-overlay" class = "hidden"></div>
       <div id="add-recipe-modal" class="hidden">
         <div class="add-modal">
 
@@ -345,6 +346,7 @@
                 <input type="text" id="edit-recipe-author-input">
             </div>
 
+          <div class="fieldset-group"> 
             <div class="edit-recipe-input-element">
                 <fieldset id="edit-recipe-difficulty-fieldset" class="edit-difficulty-fieldset">
                   <legend>Difficulty Level</legend>
@@ -401,6 +403,7 @@
                 </div>
               </fieldset>
             </div>
+          </div>
 
             <div class="edit-ingredients-input-container">
                  <!-- *********ingredients volume in number form***********-->
