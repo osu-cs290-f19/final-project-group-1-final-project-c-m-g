@@ -212,9 +212,10 @@ The active tab by default being the ALL tab*/
     /* background-color: white; */
     /* color: black; */
     /* background-color: #BCBDC1; */    
-    background-color: #FD671A;
+    background-color: red;
 
     color: white;
+    cursor: pointer;
 }
 
 /*Recipe Card styling*/
