@@ -219,7 +219,7 @@ The active tab by default being the ALL tab*/
 
 /*Recipe Card styling*/
 #recipe-cards{
-    display: flex;
+    display: fixed;
     background-color: #ffefc7;
     /* testing */
     border: 3px solid black;
@@ -232,6 +232,24 @@ The active tab by default being the ALL tab*/
     margin: 40px auto;
     z-index: 1010;
     /* box-shadow: 2px 15px rgba(0, 0, 0, 0.3); */
+}
+#display-modal-close-x{
+    /* position: absolute; */
+    display: flex; /*testing*/
+    /* right: 10px; */
+    /* top: 5px; */
+    font-size: 46px;
+    border: none;
+    background: none;
+    color: red;
+    padding: 0;
+    /* testing */
+    /* align-self: top; */
+    /* justify-self: right; */
+    /* margin-right: 5px; */
+    margin-left: 145px;
+    margin-top: -100px;
+    cursor: pointer;
 }
 
 
@@ -316,8 +334,11 @@ The active tab by default being the ALL tab*/
     font-weight: bold;
 }
 
-/*recipe-preview styling*/
 .recipe-preview{
+    display: flex;
+}
+/*recipe-preview styling*/
+.recipe-preview-container{
     border: 3px solid black;
     border-radius: 10px;
     /* width: 15%; */
@@ -330,6 +351,8 @@ The active tab by default being the ALL tab*/
 .recipe-preview-image-container{
     display: flex;
     justify-content: center;
+    max-height: 200px;
+    max-width: auto;
     /* border-bottom: 3px solid black; */
 }
 
@@ -401,18 +424,18 @@ The active tab by default being the ALL tab*/
 }
 
 /* testing flex container --duplicate for .edit-modal*/
-/*.add-recipe-modal{
+.add-recipe-modal{
     /* display: flex; */
     /* flex-direction: row; */
-/*}
+}
 
 /* testing flex container --duplicate for .edit-modal*/
-/*.add-modal{
+.add-modal{
     /* display: flex; */
     /* flex-direction: row; */
     /* flex-wrap: wrap; */
 
-/*}*/
+}
 .recipe-modal-header{
     display: flex;
     position: relative;/*testing*/
@@ -626,7 +649,7 @@ The active tab by default being the ALL tab*/
 
 #edit-recipe-time-input{
     width: 407px;
-}
+} 
 
 #edit-recipe-author-input{
     width: 444px;
@@ -681,6 +704,17 @@ next to the string input fields*/
 
 /*This is to hide everything under the 'hidden' class*/
 .hidden{
-     /*.hidden:enabled{ */
      display: none; 
 }
+
+#display-screen-overlay{
+   /* background-color: rgba(0, 0, 0, .3);*/
+}
+
+#add-screen-overlay{
+    /* background-color: rgba(0, 0, 0, .3);*/
+ }
+
+ #edit-screen-overlay{
+    /* background-color: rgba(0, 0, 0, .3);*/
+ }
