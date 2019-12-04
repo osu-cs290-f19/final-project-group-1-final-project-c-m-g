@@ -1,0 +1,6 @@
+(function() {
+  var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
+templates['mealTabs'] = template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<section id=\"meal-tabs\">\r\n    <div class=\"tabs\" data-meal-tabs=\"{}\"></div>\r\n        <ul id=\"tabs\">\r\n            <li><a href=\"#\" name=\"tab-all\">All</a></li>\r\n            <li><a href=\"#\" name=\"tab-breakfast\">Breakfast</a></li>\r\n            <li><a href=\"#\" name=\"tab-lunch\">Lunch</a></li>\r\n            <li><a href=\"#\" name=\"tab-dinner\">Dinner</a></li>  \r\n        </ul>\r\n        <button type=\"button\" id=\"add-recipe-button\" class=\"action-button\">Add Recipe</button>\r\n        <button type=\"button\" id=\"edit-recipe-button\" class=\"action-button\">Edit Recipe</button>\r\n        <button type=\"button\" id=\"show-recipe-button\" class=\"action-button\">Show Recipe</button>\r\n        <button type=\"button\" id=\"delete-recipe-button\" class=\"action-button\">Delete Recipe</button>\r\n    </div>\r\n</section>";
+},"useData":true});
+})();

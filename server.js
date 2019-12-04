@@ -3,6 +3,7 @@
 var path = require('path');
 var express = require('express');
 var exphbs = require('express-handlebars');
+var bodyParser = require('body-parser');
 var app = express();
 var port = process.env.PORT || 3000;
 //const MongoClient = require('mongodb').MongoClient;
@@ -10,13 +11,13 @@ var port = process.env.PORT || 3000;
 //const url = 'recipebox-shard-00-00-me7ar.mongodb.net:27017/RecipeBox';
 //const dbName = 'recipebox';
 
-app.engine('handlebars',exphbs({defaultLayout:'index'}));
-app.set('view engine','handlebars');
+//app.engine('handlebars',exphbs({defaultLayout:'index'}));
+//app.set('view engine','handlebars');
 
 app.use(express.static('public'));
 
 app.get("/",function (req,res,next){
-  res.status(200).render('postPage', recipes);
+  res.status(200).render("index.html");
 })
 app.get("*", function(req,res){
   res.status(404).render('404');
@@ -40,16 +41,16 @@ const uri = "mongodb+srv://weinerc:bigcheese4@recipebox-me7ar.mongodb.net/test?r
 //     db.close();
 //   });
 // });
- MongoClient.connect(uri, function(err, db) {
-   if (err) throw err;
-   var dbo = db.db("recipes");
-   var myobj = { title: "Spaghetti", time: "10" };
-   dbo.collection("recipeBox").insertOne(myobj, function(err, res) {
-     if (err) throw err;
-     console.log("1 document inserted");
-     db.close();
-   });
- });
+ //MongoClient.connect(uri, function(err, db) {
+   //if (err) throw err;
+   //var dbo = db.db("recipes");
+   //var myobj = { title: "Spaghetti", time: "10" };
+   //dbo.collection("recipeBox").insertOne(myobj, function(err, res) {
+     //if (err) throw err;
+     //console.log("1 document inserted");
+     //db.close();
+   //});
+ //});
 
 app.listen(port, function(){
    console.log("== Server is listening on port", port);

@@ -1,0 +1,296 @@
+ <!--DOM for recipe card after being clicked on and enlarged-->
+  <section id="recipe-cards" class = "hidden">
+
+    <div id="display-screen-overlay" class="hidden"></div><!--***-->
+    <div id="recipe-cards-popped" class = "hidden">
+    <button type="button-x" id="display-modal-close-x" class="display-modal-hide-button-x">&times;</button>
+    <div id="pop-modal" class = "hidden">
+
+      <div class="recipes" data-cook-time="{}" data-people-served="{}" data-difficulty="{}" data-spice="{}" data-ingredients="{}"data-directions="{}"data-author="{}" data-meal="{}" class = "hidden">
+        <div class="recipe-contents">
+          <div class="recipe-image-container">
+            <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2013/6/28/0/FNK_Apple-Pie_s4x3.jpg.rend.hgtvcom.826.620.suffix/1382545039107.jpeg" alt="pie">
+          </div>
+          <!--<i class="fas fa-heart"></i>
+          <i class="far fa-heart"></i> **this one's empty-->
+          <div class="recipe-card-container">
+              <h3><a href="#" class="recipe-title">Recipe Title**card</a></h3> 
+              <!--testing labels-->
+              <label for="recipe-time" class="labels">Cooking Time:</label><span class="data-cook-time">120 Minutes</span> 
+              <label for="recipe-size" class="labels"># Servings:</label><span class="data-people-served">8</span>
+              <label for="recipe-difficulty" class="labels">Difficulty:</label><span class="data-difficulty"> Easy</span>
+              <span class="data-ingredients">
+                <ul>
+                  <span class="data-ingredient-item"></span><li>
+                      Ingredients<!--how to have variable amount of list items (ingredients) for different posts? -->
+                  </li></span>
+                </ul>
+            </span>
+            <span class="data-directions">
+                      <p>
+                          Instructions<!--how to have variable amount of list items (directions) for different posts? -->
+                      </p>
+            </span>
+            <span class="data-author">Created by: Grandma B</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+
+    <section id="add-recipe-card" class = "hidden"> <!--createModal-->
+
+      <div id="add-screen-overlay" class="hidden"></div><!--***-->
+
+      <div id="add-recipe-modal" class="hidden">
+        <div class="add-modal">
+
+         <div class="recipe-modal-header">
+           
+            <h3>Add a Recipe Card to the Box</h3>
+            <button type="button-x" id="modal-close-x" class="modal-hide-button-x">&times;</button>
+          </div> 
+
+          <div class="recipe-modal-body">
+
+            <div class="recipe-input-element">
+              <label for="recipe-title-input">Recipe Name</label>
+              <input type="text" id="recipe-title-input"></input>
+            </div>
+
+            <div class="recipe-input-element">
+              <label for="recipe-photo-input">Photo URL</label>
+              <input type="text" id="recipe-photo-input">
+            </div>
+
+            <div class="recipe-input-element">
+              <label for="recipe-size-input">Recipe Size (# of people)</label>
+              <input type="text" id="recipe-size-input">
+            </div>
+
+            <div class="recipe-input-element">
+                <label for="recipe-time-input">Total Cooking Time</label>
+                <input type="text" id="recipe-time-input">
+            </div>
+
+            <div class="recipe-input-element">
+                <label for="recipe-author-input">Recipe Author</label>
+                <input type="text" id="recipe-author-input">
+            </div>
+
+            <!-- testing added div around all fieldsets -->
+           <div class="fieldset-group">
+            <div class="recipe-input-element">
+                <fieldset id="recipe-difficulty-fieldset" class="difficulty-fieldset">
+                  <legend>Difficulty Level</legend>
+                  <div>
+                    <input type="radio" name="difficulty-rating" id="difficulty-rating-easy" value="Easy Street" checked>
+                    <label for="difficulty-rating-easy">Easy Street</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="difficulty-rating" id="difficulty-rating-medium" value="Got Skills">
+                    <label for="difficulty-rating-skills">Got Skills</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="difficulty-rating" id="difficulty-rating-chef" value="Top Chef">
+                    <label for="difficulty-rating-chef">Top Chef</label>
+                  </div>
+                </fieldset>
+            </div>
+
+            <div class="recipe-input-element">
+              <fieldset id="recipe-spice-fieldset" class="spice-fieldset">
+                <legend>Spice Level</legend>
+                <div>
+                  <input type="radio" name="spice-rating" id="spice-rating-none" value="None" checked>
+                  <label for="spice-rating-none">None</label>
+                </div>
+                <div>
+                  <input type="radio" name="spice-rating" id="spice-rating-mild" value="Mild">
+                  <label for="spice-rating-mild">Mild</label>
+                </div>
+                <div>
+                  <input type="radio" name="spice-rating" id="spice-rating-medium" value="Medium">
+                  <label for="spice-rating-medium">Medium</label>
+                </div>
+                <div>
+                  <input type="radio" name="spice-rating" id="spice-rating-hot" value="Hot">
+                  <label for="spice-rating-hot">Hot</label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="recipe-input-element">
+              <fieldset id="recipe-meal-fieldset" class="meal-fieldset">
+                <legend>Which Meal?</legend>
+                <div>
+                  <input type="radio" name="meal-time" id="meal-time-breakfast" value="Breakfast" checked>
+                  <label for="meal-time-breakfast">Breakfast</label>
+                </div>
+                <div>
+                  <input type="radio" name="meal-time" id="meal-time-lunch" value="Lunch">
+                  <label for="meal-time-lunch">Lunch</label>
+                </div>
+                <div>
+                  <input type="radio" name="meal-time" id="meal-time-dinner" value="Dinner">
+                  <label for="meal-time-dinner">Dinner</label>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <!-- end fieldset group^^^ -->
+
+            <div class="ingredients-input-container">
+                 <!-- *********ingredients volume in number form***********-->
+                  <div class="recipe-input-element">
+                      <label for="recipe-ingredient-input">Ingredients</label>
+                      <input type="text" id="recipe-ingredient-input">
+                  </div>
+            </div>
+              <div class="directions-input-container">
+                  <!--*********directions body***********-->
+                    <div class="recipe-input-element">
+                        <label for="recipe-directions-input">Directions</label>
+                        <input type="text" id="recipe-directions-input"></input>
+                    </div>
+              </div>
+
+                <!------------->
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" id="modal-accept" class="action-button">Create Recipe</button>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <section id="edit-recipe-card" class="hidden"> <!--EditModal-->
+
+      <div id="edit-screen-overlay" class="hidden"></div><!--***-->    
+        <div id="edit-recipe-modal" class="hidden">
+        <div class="edit-modal">
+
+          <div class="edit-recipe-modal-header">
+            <h3>Edit A Recipe Card</h3>
+            <button type="button-x" id="edit-modal-close-x" class="edit-modal-hide-button-x">&times;</button>
+          </div>
+
+          <div class="edit-recipe-modal-body">
+
+            <div class="edit-recipe-input-element">
+              <label for="edit-recipe-title-input">Recipe Name</label>
+              <input type="text" id="edit-recipe-title-input"></input>
+            </div>
+
+            <div class="edit-recipe-input-element">
+              <label for="edit-recipe-photo-input">Photo URL</label>
+              <input type="text" id="edit-recipe-photo-input">
+            </div>
+
+            <div class="edit-recipe-input-element">
+              <label for="edit-recipe-size-input">Recipe Size (# of people)</label>
+              <input type="text" id="edit-recipe-size-input">
+            </div>
+
+            <div class="edit-recipe-input-element">
+                <label for="edit-recipe-time-input">Total Cooking Time</label>
+                <input type="text" id="edit-recipe-time-input">
+            </div>
+
+            <div class="edit-recipe-input-element">
+                <label for="edit-recipe-author-input">Recipe Author</label>
+                <input type="text" id="edit-recipe-author-input">
+            </div>
+
+          <div class="fieldset-group"> 
+            <div class="edit-recipe-input-element">
+                <fieldset id="edit-recipe-difficulty-fieldset" class="edit-difficulty-fieldset">
+                  <legend>Difficulty Level</legend>
+                  <div>
+                    <input type="radio" name="edit-difficulty-rating" id="edit-difficulty-rating-easy" value="Easy Street" checked>
+                    <label for="edit-ifficulty-rating-easy">Easy Street</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="edit-difficulty-rating" id="edit-difficulty-rating-skills" value="Got Skills">
+                    <label for="edit-difficulty-rating-skills">Got Skills</label>
+                  </div>
+                  <div>
+                    <input type="radio" name="edit-difficulty-rating" id="edit-difficulty-rating-chef" value="Top Chef">
+                    <label for="edit-difficulty-rating-chef">Top Chef</label>
+                  </div>
+                </fieldset>
+            </div>
+
+            <div class="edit-recipe-input-element">
+              <fieldset id="edit-recipe-spice-fieldset" class="edit-spice-fieldset">
+                <legend>Spice Level</legend>
+                <div>
+                  <input type="radio" name="edit-spice-rating" id="edit-spice-rating-none" value="None" checked>
+                  <label for="edit-spice-rating-none">None</label>
+                </div>
+                <div>
+                  <input type="radio" name="edit-spice-rating" id="edit-spice-rating-mild" value="Mild">
+                  <label for="edit-spice-rating-mild">Mild</label>
+                </div>
+                <div>
+                  <input type="radio" name="edit-spice-rating" id="edit-spice-rating-medium" value="Medium">
+                  <label for="edit-spice-rating-medium">Medium</label>
+                </div>
+                <div>
+                  <input type="radio" name="edit-spice-rating" id="edit-spice-rating-hot" value="Hot">
+                  <label for="edit-spice-rating-hot">Hot</label>
+                </div>
+              </fieldset>
+            </div>
+            <div class="edit-recipe-input-element">
+              <fieldset id="edit-recipe-meal-fieldset" class="edit-meal-fieldset">
+                <legend>Which Meal?</legend>
+                <div>
+                  <input type="radio" name="edit-meal-time" id="edit-meal-time-breakfast" value="Breakfast" checked>
+                  <label for="edit-meal-time-breakfast">Breakfast</label>
+                </div>
+                <div>
+                  <input type="radio" name="edit-meal-time" id="edit-meal-time-lunch" value="Lunch">
+                  <label for="edit-meal-time-lunch">Lunch</label>
+                </div>
+                <div>
+                  <input type="radio" name="edit-meal-time" id="edit-meal-time-dinner" value="Dinner">
+                  <label for="edit-meal-time-dinner">Dinner</label>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+
+            <div class="edit-ingredients-input-container">
+                 <!-- *********ingredients volume in number form***********-->
+                  <div class="edit-recipe-input-element">
+                      <label for="edit-recipe-ingredient-input">Ingredients</label>
+                      <input type="text" id="edit-recipe-ingredient-input">
+                  </div>
+            </div>
+              <div class="edit-directions-input-container">
+                  <!--*********directions body***********-->
+                    <div class="edit-recipe-input-element">
+                        <label for="edit-recipe-directions-input">Directions</label>
+                        <input type="text" id="edit-recipe-directions-input"></input>
+                    </div>
+              </div>
+
+                <!------------->
+
+          </div>
+
+          <div class="edit-modal-footer">
+            <button type="button" id="edit-modal-accept" class="edit-action-button">Edit Recipe</button>
+          </div>
+
+        </div>
+      </div>
+
+    </section>

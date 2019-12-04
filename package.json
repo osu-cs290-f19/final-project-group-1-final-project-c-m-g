@@ -5,11 +5,16 @@
   "main": "server.js",
   "scripts": {
     "test": "echo\"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build:newRecipeTemplate": "handlebars views/partials/newRecipe.handlebars -f public/newRecipeTemplate.js",
+    "build:headerTemplate": "handlebars views/partials/header.handlebars -f public/headerTemplate.js",
+    "build:modalTemplate": "handlebars views/partials/modal.handlebars -f public/modalTemplate.js",
+    "build:searchTemplate": "handlebars views/partials/search.handlebars -f public/searchTemplate.js",
+    "build:mealTabsTemplate": "handlebars views/partials/mealTabs.handlebars -f public/mealTabsTemplate"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/osu-cs290-f19/final-project-group-1-final-project-c-m-g/tree/Chris-JS2-server"
+    "url": "git+https://github.com/osu-cs290-f19/final-project-group-1-final-project-c-m-g/tree/Chris-JS3"
   },
   "keywords": [
     "CMG-Group-Final"
@@ -17,9 +22,11 @@
   "author": "C-M-G",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
     "handlebars": "^4.5.3",
-    "mongodb": "^3.3.5"
+    "mongodb": "^3.3.5",
+    "nodemon": "^2.0.1"
   }
 }
