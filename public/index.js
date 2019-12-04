@@ -126,6 +126,7 @@ function toggleEditModal(){
     document.querySelector("#edit-recipe-time-input").value = "";
     document.querySelector("#edit-recipe-author-input").value = "";
     document.querySelector("#edit-difficulty-rating-easy").checked = true;
+    document.querySelector("#meal-time-breakfast").checked = true;
     document.querySelector("#edit-spice-rating-none").checked = true;
     document.querySelector("#edit-recipe-ingredient-input").value = "";
     document.querySelector("#edit-recipe-directions-input").value = "";
@@ -144,6 +145,7 @@ function toggleAddModal(){
     document.querySelector("#recipe-time-input").value = "";
     document.querySelector("#recipe-author-input").value = "";
     document.querySelector("#difficulty-rating-easy").checked = true;
+    document.querySelector("#meal-time-breakfast").checked = true;
     document.querySelector("#spice-rating-none").checked = true;
     document.querySelector("#recipe-ingredient-input").value = "";
     document.querySelector("#recipe-directions-input").value = "";
