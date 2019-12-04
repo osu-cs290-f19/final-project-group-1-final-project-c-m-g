@@ -104,7 +104,7 @@
             <li><a href="#" name="tab-breakfast">Breakfast</a></li>
             <li><a href="#" name="tab-lunch">Lunch</a></li>
             <li><a href="#" name="tab-dinner">Dinner</a></li>  
-            <li><a href="#" name="tab-add-recipe">Add Recipe</a></li>    
+            <!--<li><a href="#" name="tab-add-recipe">Add Recipe</a></li> -->   
             <!--tabs to add?? : recipe of the day (different packaging, same functinality, as recipe roulette
                               : favorite recipes (tallies number of views each card gets and adds the top values to the list-->
 
@@ -113,6 +113,7 @@
         <button type="button" id="add-recipe-button" class="action-button">Add Recipe</button>
         <button type="button" id="edit-recipe-button" class="action-button">Edit Recipe</button>
         <button type="button" id="show-recipe-button" class="action-button">Show Recipe</button>
+        <button type="button" id="delete-recipe-button" class="action-button">Delete Recipe</button>
         <!--content here?? not sure if we actually need this
         <div id="content"> 
             <div id="tab-all"></div>
@@ -128,11 +129,12 @@
 
 
 <!--DOM for recipe card after being clicked on and enlarged-->
-    <section id="recipe-cards">
+    <section id="recipe-cards"class = 'hidden' >
 
-      <div class="recipe-cards-popped">
+      <div id="recipe-cards-popped" class = 'hidden'>
+      <button type="button-x" id="display-modal-close-x" class="display-modal-hide-button-x">&times;</button>
 
-        <div class="recipes" data-cook-time="{}" data-people-served="{}" data-difficulty="{}" data-spice="{}" data-ingredients="{}"data-directions="{}"data-author="{}" data-meal="{}">
+        <div class="recipes" data-cook-time="{}" data-people-served="{}" data-difficulty="{}" data-spice="{}" data-ingredients="{}"data-directions="{}"data-author="{}" data-meal="{}" class = "hidden">
           <div class="recipe-contents">
             <div class="recipe-image-container">
               <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2013/6/28/0/FNK_Apple-Pie_s4x3.jpg.rend.hgtvcom.826.620.suffix/1382545039107.jpeg" alt="pie">
@@ -140,7 +142,11 @@
             <!--<i class="fas fa-heart"></i>
             <i class="far fa-heart"></i> **this one's empty-->
             <div class="recipe-card-container">
-                <h3><a href="#" class="recipe-title">Recipe Title**card</a></h3> <span class="data-cook-time"># Minutes</span> <span class="data-people-served"># People Served</span><span class="data-difficulty"> Easy</span>
+                <h3><a href="#" class="recipe-title">Recipe Title**card</a></h3> 
+                <!--testing labels-->
+                <label for="recipe-time" class="labels">Cooking Time:</label><span class="data-cook-time">120 Minutes</span> 
+                <label for="recipe-size" class="labels"># Servings:</label><span class="data-people-served">8</span>
+                <label for="recipe-difficulty" class="labels">Difficulty:</label><span class="data-difficulty"> Easy</span>
                 <span class="data-ingredients">
                   <ul>
                     <span class="data-ingredient-item"></span><li>
@@ -162,7 +168,7 @@
 
     <section class="recipe-preview">
 
-        <div class="recipe-preview-container" data-cook-time="45" data-people-served="12" data-difficulty="Got Skills" data-spice="Mild" data-ingredients="1 cat"data-directions="Don't eat it"data-author="Satan" data-meal=""><!--changed from recipe-card-container *** will this cause access issues??-->
+        <div class="recipe-preview-container" data-cook-time="45" data-people-served="12" data-difficulty="Got Skills" data-spice="Mild" data-ingredients="1 cat"data-directions="Don't eat it"data-author="Satan" data-meal="Breakfast"><!--changed from recipe-card-container *** will this cause access issues??-->
             <div class="recipe-preview-image-container">
               <img src="https://placekitten.com/200/300" alt="a cute kitten">
             </div>
@@ -174,16 +180,17 @@
 
     </section>
 
-    <section id="add-recipe-card"> <!--createModal-->
+    <section id="add-recipe-card" class = "hidden"> <!--createModal-->
 
-      <div id="screen-overlay" hidden = true></div>
-      <div id="add-recipe-modal" class="hidden">
+      <div id="add-screen-overlay" class = "hidden"></div>
+      <div id="add-recipe-modal">
         <div class="add-modal">
 
-          <div class="recipe-modal-header">
+         <div class="recipe-modal-header">
+           
             <h3>Add a Recipe Card to the Box</h3>
             <button type="button-x" id="modal-close-x" class="modal-hide-button-x">&times;</button>
-          </div>
+          </div> 
 
           <div class="recipe-modal-body">
 
@@ -212,6 +219,8 @@
                 <input type="text" id="recipe-author-input">
             </div>
 
+            <!-- testing added div around all fieldsets -->
+           <div class="fieldset-group">
             <div class="recipe-input-element">
                 <fieldset id="recipe-difficulty-fieldset" class="difficulty-fieldset">
                   <legend>Difficulty Level</legend>
@@ -269,6 +278,8 @@
                 </div>
               </fieldset>
             </div>
+          </div>
+          <!-- end fieldset group^^^ -->
 
             <div class="ingredients-input-container">
                  <!-- *********ingredients volume in number form***********-->
@@ -300,8 +311,8 @@
 
     <section id="edit-recipe-card" class="hidden"> <!--EditModal-->
 
-      <div id="screen-overlay" class="hidden"></div>
-      <div id="edit-recipe-modal" class="hidden">
+      <div id="edit-screen-overlay" class="hidden"></div>
+      <div id="edit-recipe-modal" >
         <div class="edit-modal">
 
           <div class="edit-recipe-modal-header">
@@ -336,6 +347,7 @@
                 <input type="text" id="edit-recipe-author-input">
             </div>
 
+          <div class="fieldset-group"> 
             <div class="edit-recipe-input-element">
                 <fieldset id="edit-recipe-difficulty-fieldset" class="edit-difficulty-fieldset">
                   <legend>Difficulty Level</legend>
@@ -392,6 +404,7 @@
                 </div>
               </fieldset>
             </div>
+          </div>
 
             <div class="edit-ingredients-input-container">
                  <!-- *********ingredients volume in number form***********-->

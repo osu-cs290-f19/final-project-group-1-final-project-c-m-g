@@ -2,8 +2,9 @@
 index.js file for index.html, will eventually be replaced with handlebars, but this is basic implementation before we continue
 */
 var createModal = document.querySelector("#add-recipe-modal");
-var editModal = document.getElementById("edit-recipe-card");
+var editModal = document.getElementById("edit-recipe-button");
 var cancelEdit = document.querySelector("#edit-modal-close-x");
+var cancelDisplay = document.querySelector("#display-modal-close-x");
 var displayModal = document.querySelector("#recipe-cards");
 var modalBackdrop = document.querySelector("#screen-overlay");
 var cancelRecipe = document.querySelector("#modal-close-x");
@@ -13,49 +14,56 @@ var searchButton = document.getElementById("search-button");
 var addIngredientButton = document.getElementById("add-ing-line");
 var showCreateModal = document.querySelector("#add-recipe-button");
 var shwoRecipe = document.querySelector("#show-recipe-button");
+var deleteButton = document.querySelector("#delete-recipe-button");
 
-var allTab;
-var breakfastTab;
-var lunchTab;
-var dinnerTab;
+var allTab = document.getElementsByName("tab-all");
+var breakfastTab = document.getElementsByName("tab-breakfast");
+var lunchTab = document.getElementsByName("tab-lunch");
+var dinnerTab = document.getElementsByName("tab-dinner");
 
 var recipeEditModal = document.querySelector("#edit-recipe-modal");
 var editLoop = document.getElementsByName('edit-recipe');
 var editCheck;
 
-
 function allTabSort(){
     var recipeSort = document.getElementsByClassName("recipe-preview-container");
-    for(i=recipeSort.length-1;i>=0;i--){
-        if(recipeSort[i].getAttribute("hidden")==true){
-            recipeSort[i].setAttribute("hidden",false);
+    for(i=0;i<recipeSort.length;i++){
+        //console.log(recipeSort[i]);
+        if(recipeSort[i].classList.contains("hidden")){
+            recipeSort[i].classList.remove("hidden");
         }
     }
 }
 function breakfastTabSort(){
     allTabSort();
     var recipeSort = document.getElementsByClassName("recipe-preview-container");
-    for(i = recipeSort.length;i>=0;i--){
+    var reTime;
+    for(i=0;i<recipeSort.length;i++){
+        reTime = recipeSort[i].getAttribute('data-meal');
         if(recipeSort[i].getAttribute("data-meal")!= "Breakfast"){
-            recipeSort[i].setAttribute("hidden",true);
+            recipeSort[i].classList.add("hidden");
         }
     }
 }
 function lunchTabSort(){
     allTabSort();
     var recipeSort = document.getElementsByClassName("recipe-preview-container");
-    for(i = recipeSort.length;i>=0;i--){
+    var reTime;
+    for(i=0;i<recipeSort.length;i++){
+        reTime = recipeSort[i].getAttribute('data-meal')
         if(recipeSort[i].getAttribute("data-meal")!= "Lunch"){
-            recipeSort[i].setAttribute("hidden",true);
+            recipeSort[i].classList.add("hidden");
         }
     }
 }
 function dinnerTabSort(){
     allTabSort();
     var recipeSort = document.getElementsByClassName("recipe-preview-container");
-    for(i = recipeSort.length;i>=0;i--){
+    var reTime;
+    for(i=0;i<recipeSort.length;i++){
+        reTime = recipeSort[i].getAttribute('data-meal')
         if(recipeSort[i].getAttribute("data-meal")!= "Dinner"){
-            recipeSort[i].setAttribute("hidden",true);
+            recipeSort[i].classList.add("hidden");
         }
     }
 }
@@ -112,33 +120,51 @@ function searchRecipe(){
     }
 }
 function toggleEditModal(){
-    recipeEditModal.classList.toggle("hidden");
-    modalBackdrop.classList.toggle("hidden");
     document.querySelector("#edit-recipe-title-input").value = "";
     document.querySelector("#edit-recipe-photo-input").value = "";
     document.querySelector("#edit-recipe-size-input").value = "";
     document.querySelector("#edit-recipe-time-input").value = "";
     document.querySelector("#edit-recipe-author-input").value = "";
     document.querySelector("#edit-difficulty-rating-easy").checked = true;
+    document.querySelector("#meal-time-breakfast").checked = true;
     document.querySelector("#edit-spice-rating-none").checked = true;
     document.querySelector("#edit-recipe-ingredient-input").value = "";
     document.querySelector("#edit-recipe-directions-input").value = "";
-    
+}
+function hideEditModal(){
+    toggleEditModal();
+    var edit = document.getElementById("edit-recipe-card");
+    var back = document.getElementById("edit-screen-overlay");
+    edit.classList.add("hidden");
+    back.classList.add("hidden");
 }
 function toggleAddModal(){
-    createModal.classList.toggle('hidden');
-    modalBackdrop.classList.toggle('hidden');
     document.querySelector("#recipe-title-input").value = "";
     document.querySelector("#recipe-photo-input").value = "";
     document.querySelector("#recipe-size-input").value = "";
     document.querySelector("#recipe-time-input").value = "";
     document.querySelector("#recipe-author-input").value = "";
     document.querySelector("#difficulty-rating-easy").checked = true;
+    document.querySelector("#meal-time-breakfast").checked = true;
     document.querySelector("#spice-rating-none").checked = true;
     document.querySelector("#recipe-ingredient-input").value = "";
     document.querySelector("#recipe-directions-input").value = "";
+    var add = document.getElementById("add-recipe-card");
+    var back = document.getElementById("add-screen-overlay");
+    add.classList.add("hidden");
+    back.classList.add("hidden");
 }
-
+function showAddModal(){
+    var add = document.getElementById("add-recipe-card");
+    var back = document.getElementById("add-screen-overlay");
+    add.classList.remove("hidden");
+    back.classList.remove("hidden");
+}
+function hideDisplayModal(){
+    displayModal.classList.add("hidden");
+    var disM = document.getElementById("recipe-cards-popped");
+    disM.classList.add("hidden");
+}
 function CreateModal(){
     var recipeName = document.querySelector("#recipe-title-input").value;
     var recipePhoto = document.querySelector("#recipe-photo-input").value;
@@ -181,7 +207,7 @@ function CreateModal(){
     recipeDiv.setAttribute('data-meal',recipeMeal);
 
     var recipeImageContainerDiv = document.createElement('div');
-    recipeImageContainerDiv.classList.add('recipe-image-container');
+    recipeImageContainerDiv.classList.add('recipe-preview-image-container');
     recipeDiv.appendChild(recipeImageContainerDiv);
 
     var recipePhotoImg = document.createElement('img');
@@ -194,16 +220,22 @@ function CreateModal(){
 
     var recipeHeaderA = document.createElement('a');
     recipeHeaderA.setAttribute('href','#');
-    recipeHeaderA.classList.add('recipe-title');
+    recipeHeaderA.classList.add('recipe-preview-title');
     recipeHeaderA.textContent=recipeName;
     recipeHeader.appendChild(recipeHeaderA);
 
     var recipeSpan = document.createElement('span');
-    recipeSpan.classList.add('data-author');
+    recipeSpan.classList.add('preview-data-author');
     recipeSpan.textContent = "Created by: "+ recipeAuthor;
     recipeDiv.appendChild(recipeSpan);
 
+    var editRecipeHeader = document.createElement('h2');
+    editRecipeHeader.classList.add("preview-edit-recipe-text")
+    editRecipeHeader.textContent= "Edit Recipe";
+    recipeDiv.appendChild(editRecipeHeader);
+
     var recipeEdit = document.createElement('input');
+    recipeEdit.classList.add("preview-edit-checkbox");
     recipeEdit.setAttribute('type','checkbox');
     recipeEdit.setAttribute("name","edit-recipe");
     recipeEdit.setAttribute("value","edit");
@@ -212,10 +244,12 @@ function CreateModal(){
     var recipeContainer = document.getElementsByClassName('recipe-preview');
     recipeContainer[0].appendChild(recipeDiv);
     toggleAddModal();
+   // add.classList.add("hidden");
+    //back.classList.add("hidden");
 }
 
 function EditModal(){
-    toggleEditModal();
+    editCheck = null;
     recipeEdit = document.getElementsByClassName("recipe-preview-container");
     var editLoop = document.getElementsByName('edit-recipe');
     for(i=0;i<recipeEdit.length;i++){
@@ -223,6 +257,16 @@ function EditModal(){
             editCheck=Number(i);
         }
     }
+    if(editCheck === null){
+        alert("Please select a recipe to edit.")
+        return;
+    }
+    var edit = document.getElementById("edit-recipe-card");
+    var back = document.getElementById("edit-screen-overlay");
+    edit.classList.remove("hidden");
+    back.classList.remove("hidden");
+    
+    console.log(editCheck);
     var temp = recipeEdit[editCheck].getElementsByTagName("img");
     var editRecipeName = String(temp[0].getAttribute("alt"));
     var editRecipePhoto = String(temp[0].getAttribute("src"));
@@ -329,15 +373,26 @@ function editRecipeModal(){
         }
     }
     toggleEditModal();
+    var edit = document.getElementById("edit-recipe-card");
+    var back = document.getElementById("edit-screen-overlay");
+    edit.classList.add("hidden");
+    back.classList.add("hidden");
 }
 function DisplayModal(){
-    displayModal.classList.toggle("hidden");
+    editCheck=null;
     recipeEdit = document.getElementsByClassName("recipe-preview-container");
     for(i=0;i<recipeEdit.length;i++){
         if(editLoop[i].checked){
             editCheck=Number(i);
         }
     }
+    if(editCheck === null){
+        alert ("Please select a recipe to display.")
+        return;
+    }
+    displayModal.classList.remove("hidden");
+    var disM = document.getElementById("recipe-cards-popped");
+    disM.classList.remove("hidden");
     console.log(recipeEdit[editCheck]);
     var recipePopped = document.getElementsByClassName("recipes");
     console.log(recipePopped);
@@ -354,17 +409,40 @@ function DisplayModal(){
     poppedImg[0].setAttribute("alt",recipeEdit[editCheck].getElementsByTagName("img")[0].getAttribute("alt"));
     recipePopped[0].getElementsByTagName("a")[0].textContent = recipeEdit[editCheck].getElementsByTagName('a')[0].textContent;
     recipePopped[0].getElementsByTagName("span")[0].textContent = recipeEdit[editCheck].getAttribute("data-cook-time")+" Minutes";
-    recipePopped[0].getElementsByTagName("span")[1].textContent = recipeEdit[editCheck].getAttribute("data-people-served")+ " People Served";
-    recipePopped[0].getElementsByTagName("span")[2].textContent = "Difficulty: "+ recipeEdit[editCheck].getAttribute("data-difficulty");
+    recipePopped[0].getElementsByTagName("span")[1].textContent = recipeEdit[editCheck].getAttribute("data-people-served");
+    recipePopped[0].getElementsByTagName("span")[2].textContent = recipeEdit[editCheck].getAttribute("data-difficulty");
     recipePopped[0].getElementsByTagName("li")[0].textContent = "Ingredients: \n" + recipeEdit[editCheck].getAttribute("data-ingredients");
     recipePopped[0].getElementsByTagName("p")[0].textContent = "Instructions: \n" + recipeEdit[editCheck].getAttribute("data-directions");
     recipePopped[0].getElementsByTagName("span")[6].textContent = "Created by: " + recipeEdit[editCheck].getAttribute("data-author");
 }
-showCreateModal.addEventListener('click',toggleAddModal);
+function deleteRecipe(){
+    editCheck=null;
+    recipeEdit = document.getElementsByClassName("recipe-preview-container");
+    for(i=0;i<recipeEdit.length;i++){
+        if(editLoop[i].checked){
+            editCheck=Number(i);
+        }
+    }
+    if(editCheck === null){
+        alert ("Please select a recipe to delete.")
+        return;
+    }
+    var removed = recipeEdit[editCheck];
+    var recipeContainer = document.getElementsByClassName('recipe-preview');
+    recipeContainer[0].removeChild(removed);
+}
+
+showCreateModal.addEventListener('click',showAddModal);
 searchButton.addEventListener('click',searchRecipe);
 cancelRecipe.addEventListener('click',toggleAddModal);
 createRecipe.addEventListener('click',CreateModal);
 editRecipe.addEventListener('click',editRecipeModal);
 editModal.addEventListener('click',EditModal);
-cancelEdit.addEventListener('click',toggleEditModal);
+cancelEdit.addEventListener('click',hideEditModal);
 shwoRecipe.addEventListener('click',DisplayModal);
+allTab[0].addEventListener('click',allTabSort);
+breakfastTab[0].addEventListener('click',breakfastTabSort);
+lunchTab[0].addEventListener('click',lunchTabSort);
+dinnerTab[0].addEventListener('click',dinnerTabSort);
+deleteButton.addEventListener('click',deleteRecipe);
+cancelDisplay.addEventListener('click',hideDisplayModal);
