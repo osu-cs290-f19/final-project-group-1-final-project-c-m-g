@@ -135,8 +135,10 @@ function hideEditModal(){
     toggleEditModal();
     var edit = document.getElementById("edit-recipe-card");
     var back = document.getElementById("edit-screen-overlay");
+    var eM = document.getElementById("edit-recipe-modal");
     edit.classList.add("hidden");
     back.classList.add("hidden");
+    eM.classList.add("hidden");
 }
 function toggleAddModal(){
     document.querySelector("#recipe-title-input").value = "";
@@ -151,19 +153,25 @@ function toggleAddModal(){
     document.querySelector("#recipe-directions-input").value = "";
     var add = document.getElementById("add-recipe-card");
     var back = document.getElementById("add-screen-overlay");
+    var aM = document.getElementById("add-recipe-modal");
     add.classList.add("hidden");
     back.classList.add("hidden");
+    aM.classList.add("hidden");
 }
 function showAddModal(){
     var add = document.getElementById("add-recipe-card");
     var back = document.getElementById("add-screen-overlay");
+    var aM = document.getElementById("add-recipe-modal");
     add.classList.remove("hidden");
     back.classList.remove("hidden");
+    aM.classList.remove("hidden");
 }
 function hideDisplayModal(){
     displayModal.classList.add("hidden");
     var disM = document.getElementById("recipe-cards-popped");
     disM.classList.add("hidden");
+    var rP = document.getElementById("pop-modal");
+    rP.classList.add("hidden");
 }
 function CreateModal(){
     var recipeName = document.querySelector("#recipe-title-input").value;
@@ -263,9 +271,11 @@ function EditModal(){
     }
     var edit = document.getElementById("edit-recipe-card");
     var back = document.getElementById("edit-screen-overlay");
+    var eM = document.getElementById("edit-recipe-modal");
     edit.classList.remove("hidden");
     back.classList.remove("hidden");
-    
+    eM.classList.remove("hidden");
+
     console.log(editCheck);
     var temp = recipeEdit[editCheck].getElementsByTagName("img");
     var editRecipeName = String(temp[0].getAttribute("alt"));
@@ -393,6 +403,8 @@ function DisplayModal(){
     displayModal.classList.remove("hidden");
     var disM = document.getElementById("recipe-cards-popped");
     disM.classList.remove("hidden");
+    var rP = document.getElementById("pop-modal");
+    rP.classList.remove("hidden");
     console.log(recipeEdit[editCheck]);
     var recipePopped = document.getElementsByClassName("recipes");
     console.log(recipePopped);
