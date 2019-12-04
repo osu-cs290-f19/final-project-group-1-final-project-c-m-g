@@ -626,7 +626,7 @@ The active tab by default being the ALL tab*/
 
 #edit-recipe-time-input{
     width: 407px;
-}
+} 
 
 #edit-recipe-author-input{
     width: 444px;
@@ -681,6 +681,17 @@ next to the string input fields*/
 
 /*This is to hide everything under the 'hidden' class*/
 .hidden{
-    /* .hidden:enabled{ */
     /* display: none; */
 }
+
+#display-screen-overlay{
+   /* background-color: rgba(0, 0, 0, .3);*/
+}
+
+#add-screen-overlay{
+    /* background-color: rgba(0, 0, 0, .3);*/
+ }
+
+ #edit-screen-overlay{
+    /* background-color: rgba(0, 0, 0, .3);*/
+ }

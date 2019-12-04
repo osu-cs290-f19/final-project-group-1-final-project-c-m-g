@@ -35,7 +35,7 @@
     </header>
 
 <!--DOM for search input fields-->
-
+<main>
     <section id="search-box">
 
       <div class="search-header">
@@ -128,42 +128,6 @@
 </section>
 
 
-<!--DOM for recipe card after being clicked on and enlarged-->
-    <section id="recipe-cards" class = "hidden">
-
-      <div class="recipe-cards-popped" class = "hidden">
-
-        <div class="recipes" data-cook-time="{}" data-people-served="{}" data-difficulty="{}" data-spice="{}" data-ingredients="{}"data-directions="{}"data-author="{}" data-meal="{}" class = "hidden">
-          <div class="recipe-contents">
-            <div class="recipe-image-container">
-              <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2013/6/28/0/FNK_Apple-Pie_s4x3.jpg.rend.hgtvcom.826.620.suffix/1382545039107.jpeg" alt="pie">
-            </div>
-            <!--<i class="fas fa-heart"></i>
-            <i class="far fa-heart"></i> **this one's empty-->
-            <div class="recipe-card-container">
-                <h3><a href="#" class="recipe-title">Recipe Title**card</a></h3> 
-                <!--testing labels-->
-                <label for="recipe-time" class="labels">Cooking Time:</label><span class="data-cook-time">120 Minutes</span> 
-                <label for="recipe-size" class="labels"># Servings:</label><span class="data-people-served">8</span>
-                <label for="recipe-difficulty" class="labels">Difficulty:</label><span class="data-difficulty"> Easy</span>
-                <span class="data-ingredients">
-                  <ul>
-                    <span class="data-ingredient-item"></span><li>
-                        Ingredients<!--how to have variable amount of list items (ingredients) for different posts? -->
-                    </li></span>
-                  </ul>
-              </span>
-              <span class="data-directions">
-                        <p>
-                            Instructions<!--how to have variable amount of list items (directions) for different posts? -->
-                        </p>
-              </span>
-              <span class="data-author">Created by: Grandma B</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <section class="recipe-preview">
 
@@ -179,9 +143,51 @@
 
     </section>
 
+  </main>
+
+  <!--DOM for recipe card after being clicked on and enlarged-->
+  <section id="recipe-cards" class = "hidden">
+
+    <div id="display-screen-overlay" class="hidden"></div><!--***-->
+    <div class="recipe-cards-popped" class = "hidden">
+
+      <div class="recipes" data-cook-time="{}" data-people-served="{}" data-difficulty="{}" data-spice="{}" data-ingredients="{}"data-directions="{}"data-author="{}" data-meal="{}" class = "hidden">
+        <div class="recipe-contents">
+          <div class="recipe-image-container">
+            <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2013/6/28/0/FNK_Apple-Pie_s4x3.jpg.rend.hgtvcom.826.620.suffix/1382545039107.jpeg" alt="pie">
+          </div>
+          <!--<i class="fas fa-heart"></i>
+          <i class="far fa-heart"></i> **this one's empty-->
+          <div class="recipe-card-container">
+              <h3><a href="#" class="recipe-title">Recipe Title**card</a></h3> 
+              <!--testing labels-->
+              <label for="recipe-time" class="labels">Cooking Time:</label><span class="data-cook-time">120 Minutes</span> 
+              <label for="recipe-size" class="labels"># Servings:</label><span class="data-people-served">8</span>
+              <label for="recipe-difficulty" class="labels">Difficulty:</label><span class="data-difficulty"> Easy</span>
+              <span class="data-ingredients">
+                <ul>
+                  <span class="data-ingredient-item"></span><li>
+                      Ingredients<!--how to have variable amount of list items (ingredients) for different posts? -->
+                  </li></span>
+                </ul>
+            </span>
+            <span class="data-directions">
+                      <p>
+                          Instructions<!--how to have variable amount of list items (directions) for different posts? -->
+                      </p>
+            </span>
+            <span class="data-author">Created by: Grandma B</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
     <section id="add-recipe-card" class = "hidden"> <!--createModal-->
 
-      <div id="screen-overlay" class = "hidden"></div>
+      <div id="add-screen-overlay" class="hidden"></div><!--***-->
+
       <div id="add-recipe-modal" class="hidden">
         <div class="add-modal">
 
@@ -310,8 +316,8 @@
 
     <section id="edit-recipe-card" class="hidden"> <!--EditModal-->
 
-      <div id="screen-overlay" class="hidden"></div>
-      <div id="edit-recipe-modal" class="hidden">
+      <div id="edit-screen-overlay" class="hidden"></div><!--***-->    
+        <div id="edit-recipe-modal" class="hidden">
         <div class="edit-modal">
 
           <div class="edit-recipe-modal-header">
