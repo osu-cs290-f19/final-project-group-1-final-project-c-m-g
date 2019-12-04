@@ -141,6 +141,16 @@
             <input class="preview-edit-checkbox" type="checkbox" name="edit-recipe" value="edit">
         </div>
 
+        <div class="recipe-preview-container" data-cook-time="45" data-people-served="12" data-difficulty="Got Skills" data-spice="Mild" data-ingredients="1 cat"data-directions="Don't eat it"data-author="Satan" data-meal=""><!--changed from recipe-card-container *** will this cause access issues??-->
+          <div class="recipe-preview-image-container">
+            <img src="https://placekitten.com/200/300" alt="a cute kitten">
+          </div>
+          <h3><a href="#" class="recipe-preview-title">Cutie Kitten</a></h3> <!--<i class="fas fa-heart"></i>-->
+          <span class="preview-data-author">Created by: Satan</span>
+          <h2 class="preview-edit-recipe-text">Edit Recipe</h2>
+          <input class="preview-edit-checkbox" type="checkbox" name="edit-recipe" value="edit">
+      </div>
+
     </section>
 
   </main>
@@ -149,7 +159,9 @@
   <section id="recipe-cards" class = "hidden">
 
     <div id="display-screen-overlay" class="hidden"></div><!--***-->
-    <div class="recipe-cards-popped" class = "hidden">
+    <div id="recipe-cards-popped" class = "hidden">
+
+    <div id="pop-modal" class = "hidden">
 
       <div class="recipes" data-cook-time="{}" data-people-served="{}" data-difficulty="{}" data-spice="{}" data-ingredients="{}"data-directions="{}"data-author="{}" data-meal="{}" class = "hidden">
         <div class="recipe-contents">
@@ -180,6 +192,7 @@
           </div>
         </div>
       </div>
+    </div>
     </div>
   </section>
 

@@ -219,7 +219,7 @@ The active tab by default being the ALL tab*/
 
 /*Recipe Card styling*/
 #recipe-cards{
-    display: flex;
+    display: fixed;
     background-color: #ffefc7;
     /* testing */
     border: 3px solid black;
@@ -316,8 +316,11 @@ The active tab by default being the ALL tab*/
     font-weight: bold;
 }
 
-/*recipe-preview styling*/
 .recipe-preview{
+    display: flex;
+}
+/*recipe-preview styling*/
+.recipe-preview-container{
     border: 3px solid black;
     border-radius: 10px;
     /* width: 15%; */
@@ -681,7 +684,7 @@ next to the string input fields*/
 
 /*This is to hide everything under the 'hidden' class*/
 .hidden{
-    /* display: none; */
+     display: none; 
 }
 
 #display-screen-overlay{
