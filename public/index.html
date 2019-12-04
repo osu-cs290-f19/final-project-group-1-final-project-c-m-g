@@ -35,7 +35,7 @@
     </header>
 
 <!--DOM for search input fields-->
-
+<main>
     <section id="search-box">
 
       <div class="search-header">
@@ -104,7 +104,7 @@
             <li><a href="#" name="tab-breakfast">Breakfast</a></li>
             <li><a href="#" name="tab-lunch">Lunch</a></li>
             <li><a href="#" name="tab-dinner">Dinner</a></li>  
-            <!--<li><a href="#" name="tab-add-recipe">Add Recipe</a></li> -->   
+            <li><a href="#" name="tab-add-recipe">Add Recipe</a></li>    
             <!--tabs to add?? : recipe of the day (different packaging, same functinality, as recipe roulette
                               : favorite recipes (tallies number of views each card gets and adds the top values to the list-->
 
@@ -128,49 +128,12 @@
 </section>
 
 
-<!--DOM for recipe card after being clicked on and enlarged-->
-    <section id="recipe-cards"class = 'hidden' >
-
-      <div id="recipe-cards-popped" class = 'hidden'>
-      <button type="button-x" id="display-modal-close-x" class="display-modal-hide-button-x">&times;</button>
-
-        <div class="recipes" data-cook-time="{}" data-people-served="{}" data-difficulty="{}" data-spice="{}" data-ingredients="{}"data-directions="{}"data-author="{}" data-meal="{}" class = "hidden">
-          <div class="recipe-contents">
-            <div class="recipe-image-container">
-              <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2013/6/28/0/FNK_Apple-Pie_s4x3.jpg.rend.hgtvcom.826.620.suffix/1382545039107.jpeg" alt="pie">
-            </div>
-            <!--<i class="fas fa-heart"></i>
-            <i class="far fa-heart"></i> **this one's empty-->
-            <div class="recipe-card-container">
-                <h3><a href="#" class="recipe-title">Recipe Title**card</a></h3> 
-                <!--testing labels-->
-                <label for="recipe-time" class="labels">Cooking Time:</label><span class="data-cook-time">120 Minutes</span> 
-                <label for="recipe-size" class="labels"># Servings:</label><span class="data-people-served">8</span>
-                <label for="recipe-difficulty" class="labels">Difficulty:</label><span class="data-difficulty"> Easy</span>
-                <span class="data-ingredients">
-                  <ul>
-                    <span class="data-ingredient-item"></span><li>
-                        Ingredients<!--how to have variable amount of list items (ingredients) for different posts? -->
-                    </li></span>
-                  </ul>
-              </span>
-              <span class="data-directions">
-                        <p>
-                            Instructions<!--how to have variable amount of list items (directions) for different posts? -->
-                        </p>
-              </span>
-              <span class="data-author">Created by: Grandma B</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <section class="recipe-preview">
 
-        <div class="recipe-preview-container" data-cook-time="45" data-people-served="12" data-difficulty="Got Skills" data-spice="Mild" data-ingredients="1 cat"data-directions="Don't eat it"data-author="Satan" data-meal="Breakfast"><!--changed from recipe-card-container *** will this cause access issues??-->
+        <div class="recipe-preview-container" data-cook-time="45" data-people-served="12" data-difficulty="Got Skills" data-spice="Mild" data-ingredients="1 cat"data-directions="Don't eat it"data-author="Satan" data-meal=""><!--changed from recipe-card-container *** will this cause access issues??-->
             <div class="recipe-preview-image-container">
-              <img src="https://placekitten.com/200/300" alt="a cute kitten">
+              <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2016/3/30/1/KC0905H_Spaghetti-Pie_s4x3.jpg.rend.hgtvcom.826.620.suffix/1529949155951.jpeg" alt="a cute kitten">
             </div>
             <h3><a href="#" class="recipe-preview-title">Cutie Kitten</a></h3> <!--<i class="fas fa-heart"></i>-->
             <span class="preview-data-author">Created by: Satan</span>
@@ -178,12 +141,67 @@
             <input class="preview-edit-checkbox" type="checkbox" name="edit-recipe" value="edit">
         </div>
 
+        <div class="recipe-preview-container" data-cook-time="45" data-people-served="12" data-difficulty="Got Skills" data-spice="Mild" data-ingredients="1 cat"data-directions="Don't eat it"data-author="Satan" data-meal=""><!--changed from recipe-card-container *** will this cause access issues??-->
+          <div class="recipe-preview-image-container">
+            <img src="https://spicysouthernkitchen.com/wp-content/uploads/chicken-pot-pie-replace-blog-4.jpg" alt="a cute kitten">
+          </div>
+          <h3><a href="#" class="recipe-preview-title">Cutie Kitten</a></h3> <!--<i class="fas fa-heart"></i>-->
+          <span class="preview-data-author">Created by: Satan</span>
+          <h2 class="preview-edit-recipe-text">Edit Recipe</h2>
+          <input class="preview-edit-checkbox" type="checkbox" name="edit-recipe" value="edit">
+      </div>
+
     </section>
+
+  </main>
+
+  <!--DOM for recipe card after being clicked on and enlarged-->
+  <section id="recipe-cards" class = "hidden">
+
+    <div id="display-screen-overlay" class="hidden"></div><!--***-->
+    <div id="recipe-cards-popped" class = "hidden">
+    <button type="button-x" id="display-modal-close-x" class="display-modal-hide-button-x">&times;</button>
+    <div id="pop-modal" class = "hidden">
+
+      <div class="recipes" data-cook-time="{}" data-people-served="{}" data-difficulty="{}" data-spice="{}" data-ingredients="{}"data-directions="{}"data-author="{}" data-meal="{}" class = "hidden">
+        <div class="recipe-contents">
+          <div class="recipe-image-container">
+            <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2013/6/28/0/FNK_Apple-Pie_s4x3.jpg.rend.hgtvcom.826.620.suffix/1382545039107.jpeg" alt="pie">
+          </div>
+          <!--<i class="fas fa-heart"></i>
+          <i class="far fa-heart"></i> **this one's empty-->
+          <div class="recipe-card-container">
+              <h3><a href="#" class="recipe-title">Recipe Title**card</a></h3> 
+              <!--testing labels-->
+              <label for="recipe-time" class="labels">Cooking Time:</label><span class="data-cook-time">120 Minutes</span> 
+              <label for="recipe-size" class="labels"># Servings:</label><span class="data-people-served">8</span>
+              <label for="recipe-difficulty" class="labels">Difficulty:</label><span class="data-difficulty"> Easy</span>
+              <span class="data-ingredients">
+                <ul>
+                  <span class="data-ingredient-item"></span><li>
+                      Ingredients<!--how to have variable amount of list items (ingredients) for different posts? -->
+                  </li></span>
+                </ul>
+            </span>
+            <span class="data-directions">
+                      <p>
+                          Instructions<!--how to have variable amount of list items (directions) for different posts? -->
+                      </p>
+            </span>
+            <span class="data-author">Created by: Grandma B</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
 
     <section id="add-recipe-card" class = "hidden"> <!--createModal-->
 
-      <div id="add-screen-overlay" class = "hidden"></div>
-      <div id="add-recipe-modal">
+      <div id="add-screen-overlay" class="hidden"></div><!--***-->
+
+      <div id="add-recipe-modal" class="hidden">
         <div class="add-modal">
 
          <div class="recipe-modal-header">
@@ -311,8 +329,8 @@
 
     <section id="edit-recipe-card" class="hidden"> <!--EditModal-->
 
-      <div id="edit-screen-overlay" class="hidden"></div>
-      <div id="edit-recipe-modal" >
+      <div id="edit-screen-overlay" class="hidden"></div><!--***-->    
+        <div id="edit-recipe-modal" class="hidden">
         <div class="edit-modal">
 
           <div class="edit-recipe-modal-header">
