@@ -82,8 +82,10 @@ header{
     border-radius: 10px;
     font-family: 'Crete Round', serif;
     font-size: x-large;
+    cursor: pointer;
 }
 
+/*meal tabs styling*/
 #meal-tabs ul{
     list-style-type: none;
     display: inline;
@@ -97,14 +99,588 @@ header{
     float: left;
 }
 
+/*This is the styling for all the meal tabs by default*/
 #meal-tabs li a{
     display: block;
     color:black;
+    background-color: #BCBDC1;
     text-align: center;
-    padding: 26px, 10px;
+    padding: 10px;
     text-decoration: none;
+    margin-top: 15px;
+    margin-right: 10px;
+    font-family: 'Crete Round', serif;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 
 #meal-tabs li a:hover{
     background-color: #FD671A;
+    color: white;
+}
+
+/*Temporary fix for an active tab by default.
+The active tab by default being the ALL tab*/
+#meal-tabs li:first-child a{
+    display: block;
+    color: white;
+    background-color: #FD671A;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    margin-top: 15px;
+    margin-right: 10px;
+    font-family: 'Crete Round', serif;
+}
+
+/*When hovering over the Add Recipe tab*/
+#meal-tabs li:last-child a:hover{
+    background-color: darkred;
+    color: white;
+}
+
+/*Add, edit and show recipe buttons styling*/
+#add-recipe-button{
+    display: inline-block;
+    padding: 10px;
+    background-color: darkred;
+    color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    font-family: 'Crete Round', serif;
+    font-size: large;
+    margin: 5px;
+}
+
+#add-recipe-button:hover{
+    background-color: white;
+    color: red;
+    cursor: pointer;
+}
+
+#edit-recipe-button{
+    display: inline-block;
+    padding: 10px;
+    background-color: #FD671A;
+    color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    font-family: 'Crete Round', serif;
+    font-size: large;
+    margin: 5px;
+}
+
+#edit-recipe-button:hover{
+    background-color: white;
+    color: #FD671A;
+    cursor: pointer;
+}
+
+#show-recipe-button{
+    display: inline-block;
+    padding: 10px;
+    background-color: #BCBDC1;
+    color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    font-family: 'Crete Round', serif;
+    font-size: large;
+    margin: 5px;
+}
+
+#show-recipe-button:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+#delete-recipe-button{
+    display: inline-block;
+    padding: 10px;
+    /* background-color: #BCBDC1; */
+    /* color: white; */
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+    border-radius: 10px;
+    font-family: 'Crete Round', serif;
+    font-size: large;
+    margin: 5px;
+}
+
+#delete-recipe-button:hover{
+    /* background-color: white; */
+    /* color: black; */
+    /* background-color: #BCBDC1; */    
+    background-color: #FD671A;
+
+    color: white;
+}
+
+/*Recipe Card styling*/
+#recipe-cards{
+    display: flex;
+    background-color: #ffefc7;
+    /* testing */
+    border: 3px solid black;
+    background-color: #ffefc7;
+    border-radius: 20px;
+    padding: 25px;
+    /* width: 50%; */
+    /* testing */
+    width: 40%;
+    margin: 40px auto;
+    z-index: 1010;
+    /* box-shadow: 2px 15px rgba(0, 0, 0, 0.3); */
+}
+
+
+.recipe-image-container{
+    display: flex;
+    justify-content: center;
+}
+
+.recipe-image-container img{
+    display: flex;
+    /* width: 50%; */
+    /* height: 50%; */
+    /* testing */
+    width: 85%;
+    height: auto;
+    border-radius: 10px;
+    /* border: 3px solid black; */
+}
+
+.recipe-title{
+    display: flex;
+    justify-self: flex-start;
+    font-family: 'Crete Round', serif;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 36px;
+    margin: 25px;
+}
+
+/* testing */
+.labels{
+    font-family: 'Asap', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    padding-left: 25px;
+    /* padding-right: 5px; */
+    /* border-right: 1px solid black; */
+}
+
+.data-cook-time{
+    font-family: 'Asap', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    padding-left: 10px; /*testing--was 25px*/
+    padding-right: 25px;
+    border-right: 1px solid black;
+}
+
+.data-people-served{
+    font-family: 'Asap', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    padding-left: 10px; /*testing--was 25px*/
+    padding-right: 25px;
+    border-right: 1px solid black;
+}
+
+.data-difficulty{
+    font-family: 'Asap', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    padding-left: 10px; /*testing--was 25px*/
+}
+
+.data-ingredients{
+    font-family: 'Asap', sans-serif;
+    padding-left: 45px;
+    font-size: 14px;
+}
+
+.data-directions p{
+    font-family: 'Asap', sans-serif;
+    padding-left: 25px;
+    font-size: 14px;
+}
+
+.data-author{
+    font-family: 'Asap', sans-serif;
+    margin-left: 25px;
+    margin-bottom: 25px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/*recipe-preview styling*/
+.recipe-preview{
+    border: 3px solid black;
+    border-radius: 10px;
+    /* width: 15%; */
+    max-width: 20%;
+    padding: 20px;
+    margin: 10px;
+    background-color: #BCBDC1;
+}
+
+.recipe-preview-image-container{
+    display: flex;
+    justify-content: center;
+    /* border-bottom: 3px solid black; */
+}
+
+.recipe-preview-image-container img{
+    min-width: 100%;
+    height: auto;
+    /* border-top-right-radius: 10px; */
+    /* border-top-left-radius: 10px; */
+    border-radius: 10px;
+    scale: 100%;
+}
+
+.recipe-preview-title{
+    display: flex;
+    justify-self: right;
+    font-family: 'Crete Round', serif;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 10px;
+}
+
+.preview-data-author{
+    display: flex;
+    justify-self: right;
+    font-family: 'Asap', sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 10px;
+}
+.preview-edit-recipe-text{
+    display: flex;
+    justify-self: right;
+    font-family: 'Crete Round', serif;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 10px;
+}
+
+.preview-edit-checkbox{
+    display: flex;
+    position: relative;
+    justify-self: right;
+}
+
+/*Add Recipe Card Modal Styling*/
+/*fix this*/
+#add-recipe-card{
+    display: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /*position: fixed;*/
+    border: 3px solid black;
+    background-color: #ffefc7;
+    border-radius: 10px;
+    /* testing */
+    width: auto;
+    max-width: 600px;
+    min-width: 350px;
+    min-height: 300px;
+    margin: 40px auto;
+    /* width: 50%;testing
+    /* width: 75%; */
+    z-index: 1010;
+}
+
+/* testing flex container --duplicate for .edit-modal*/
+/*.add-recipe-modal{
+    /* display: flex; */
+    /* flex-direction: row; */
+/*}
+
+/* testing flex container --duplicate for .edit-modal*/
+/*.add-modal{
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* flex-wrap: wrap; */
+
+/*}*/
+.recipe-modal-header{
+    display: flex;
+    position: relative;/*testing*/
+    /* justify-content: center; */
+    justify-self: center;
+    align-self: center;
+    /* margin: 10px; */
+    margin: 3%;
+    padding: 3%;
+    font-family: 'Crete Round', serif;
+    font-size: x-large;
+}
+
+/*fix this*/
+#modal-close-x{
+    /* position: absolute; */
+    display: flex; /*testing*/
+    /* right: 10px; */
+    /* top: 5px; */
+    font-size: 46px;
+    border: none;
+    background: none;
+    color: red;
+    padding: 0;
+    /* testing */
+    /* align-self: top; */
+    /* justify-self: right; */
+    /* margin-right: 5px; */
+    margin-left: 145px;
+    margin-top: -100px;
+    cursor: pointer;
+}
+
+.recipe-input-element{
+    font-family: 'Asap', sans-serif;
+    font-weight: bold;
+    margin-left: 20px;
+    margin: 20px;
+}
+
+.recipe-input-element input{
+    /* display: flex; testing */
+    flex-flow: row wrap;
+    /* flex-flow: row; */
+    justify-content: right;
+    padding: 5px;
+    padding-right: auto;
+    /* border-radius: 10px; */
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+/* testing */
+#recipe-title-input{
+    width: 449px;
+}
+
+#recipe-photo-input{
+    width: 469px;
+}
+
+#recipe-size-input{
+    width: 370px;
+}
+
+#recipe-time-input{
+    width: 407px;
+}
+
+#recipe-author-input{
+    width: 444px;
+}
+
+#recipe-ingredient-input{
+    /* max-width: 90%; */
+    width: 464px;
+}
+
+#recipe-directions-input{
+    /* max-width: 90%; */
+    width: 472px;
+}
+
+/* also applies to edit modal */
+.fieldset-group{
+    display: flex;
+    flex-direction: row;
+}
+/*fix this*/
+.recipe-input-element fieldset{
+    display: inline-flex;
+    position: relative;
+    justify-self: right;
+}
+
+.modal-footer{
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}
+
+#modal-accept{
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: 3px solid #FD671A;
+    border-radius: 10px;
+    font-family: 'Crete Round', serif;
+    font-size: x-large;
+    /*testing*/
+    /* align-self: flex-end; */
+}
+
+#modal-accept:hover{
+    padding: 10px;
+    background-color: #FD671A;
+    color: black;
+    border: 3px solid black;
+    border-radius: 10px;
+    font-family: 'Crete Round', serif;
+    font-size: x-large;
+    cursor: pointer;
+    /* testing */
+    align-self: flex-end; 
+}
+
+/*Edit Recipe Card Modal Styling*/
+/*fix this*/
+#edit-recipe-card{
+    display: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /*position: fixed;*/
+    border: 3px solid black;
+    background-color: #ffefc7;
+    border-radius: 10px;
+    width: auto;
+    max-width: 600px;
+    min-width: 350px;
+    min-height: 300px;
+    margin: 40px auto;
+    z-index: 1010;
+}
+
+.edit-recipe-modal-header{
+    display: flex;
+    position: relative;/*testing*/
+    justify-content: center;
+    align-self: center;
+    /* margin: 10px; */
+    margin: 3px;
+    padding: 3px;
+    font-family: 'Crete Round', serif;
+    font-size: x-large;
+}
+
+.edit-recipe-modal-header h3{
+    margin: 45px;
+}
+/*fix this*/
+#edit-modal-close-x{
+     /* position: absolute; */
+     display: flex; /*testing*/
+     /* right: 10px; */
+     /* top: 5px; */
+     font-size: 46px;
+     border: none;
+     background: none;
+     color: red;
+     padding: 0;
+     /* testing */
+     /* align-self: top; */
+     /* justify-self: right; */
+     /* margin-right: 5px; */
+     margin-left: 175px;
+     margin-top: -90px;
+     cursor: pointer;
+}
+
+.edit-recipe-input-element{
+    font-family: 'Asap', sans-serif;
+    font-weight: bold;
+    margin-left: 20px;
+    margin: 20px;
+}
+
+.edit-recipe-input-element input{
+    /* display: flex; */
+    flex-flow: row wrap;
+    justify-content: right;
+    padding: 5px;
+    padding-right: auto;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+/* testing */
+#edit-recipe-title-input{
+    width: 449px;
+}
+
+#edit-recipe-photo-input{
+    width: 469px;
+}
+
+#edit-recipe-size-input{
+    width: 370px;
+}
+
+#edit-recipe-time-input{
+    width: 407px;
+}
+
+#edit-recipe-author-input{
+    width: 444px;
+}
+
+#edit-recipe-ingredient-input{
+    /* max-width: 90%; */
+    width: 464px;
+}
+
+#edit-recipe-directions-input{
+    /* max-width: 90%; */
+    width: 472px;
+}
+
+/*fix this, want to make this appear to the right
+next to the string input fields*/
+
+/* .fieldset-group rule in recipe modal also applies to edit */
+.edit-recipe-input-element fieldset{
+    display: inline-flex;
+    position: relative;
+    justify-self: right;
+}
+
+.edit-modal-footer{
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}
+
+#edit-modal-accept{
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: 3px solid #FD671A;
+    border-radius: 10px;
+    font-family: 'Crete Round', serif;
+    font-size: x-large;
+}
+
+#edit-modal-accept:hover{
+    padding: 10px;
+    background-color: #FD671A;
+    color: black;
+    border: 3px solid black;
+    border-radius: 10px;
+    font-family: 'Crete Round', serif;
+    font-size: x-large;
+    cursor: pointer;
+}
+
+/*This is to hide everything under the 'hidden' class*/
+.hidden{
+     /*.hidden:enabled{ */
+     display: none; 
 }
