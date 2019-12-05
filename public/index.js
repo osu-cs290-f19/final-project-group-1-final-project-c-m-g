@@ -203,7 +203,11 @@ function CreateModal(){
     var recipeIngredient = document.querySelector("#recipe-ingredient-input").value;
     var recipeDirection = document.querySelector("#recipe-directions-input").value;
 
-    var recipeHTML = Handlebars.templates.newRecipe({
+
+    var addRequest = new XMLHttpRequest();
+    var requestURL = '/addRecipe';
+    addRequest.open('POST',requestURL);
+    var requestBody = JSON.stringify({
         title: recipeName,
         url: recipePhoto,
         peopleServed: recipeSize,
@@ -215,12 +219,34 @@ function CreateModal(){
         ingredients: recipeIngredient,
         directions: recipeDirection 
     })
-    
-    var recipeContainer = document.getElementsByClassName('recipe-preview');
-    recipeContainer[0].insertAdjacentHTML('beforeend',recipeHTML);
+
+    addRequest.addEventListener('load',function(event){
+        if(event.target.status === 200){
+            var recipeTemplate = Handlebars.templates.newRecipe;
+            var recipeHTML = recipeTemplate({
+                title: recipeName,
+                url: recipePhoto,
+                peopleServed: recipeSize,
+                cookTime: recipeTime,
+                author: recipeAuthor,
+                difficulty: recipeDifficulty,
+                spice: recipeSpice,
+                meal: recipeMeal,
+                ingredients: recipeIngredient,
+                directions: recipeDirection
+            });
+            var recipeContainer = document.getElementsByClassName('recipe-preview');
+            console.log(recipeContainer);
+            console.log(recipeHTML);
+            recipeContainer[0].insertAdjacentHTML('beforeend',recipeHTML);
+        }else{
+            alert("Error adding recipe: "+ event.target.response);
+        }
+        
+    });
+    addRequest.setRequestHeader('Content-Type','application/json');
+    addRequest.send(requestBody);
     toggleAddModal();
-   // add.classList.add("hidden");
-    //back.classList.add("hidden");
 }
 
 function EditModal(){
