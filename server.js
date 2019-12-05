@@ -27,9 +27,32 @@ app.get("/",function (req,res,next){
   });
 });
 
-app.post("/addRecipe",function(re,res,next){
-  var recipeCollection = mongoDB.collection('recipeBox');
-  
+app.post("/addRecipe",function(req,res,next){
+  if(req.body && req.body.title && req.body.url && req.body.peopleServed && req.body.cookTime && req.body.author && req.body.difficulty && req.body.spice && req.body.meal && req.body.ingredients && req.body.directions){
+    var recipeCollection = mongoDB.collection('recipeBox');
+    recipeCollection.insertOne({
+      title: req.body.title,
+      url: req.body.url,
+      peopleServed: req.body.peopleServed,
+      cookTime: req.body.cookTime,
+      author: req.body.author,
+      difficulty: req.body.difficulty,
+      spice: req.body.spice,
+      meal: req.body.meal,
+      ingredients: req.body.ingredients,
+      directions: req.body.directions
+    },function(err, result){
+      if(err){
+        res.status(500).send("Error saving recipe to database");
+      }
+      else{
+        res.status(200).send("Successfully added recipe");
+      }
+    })
+  }
+  else{
+    res.status(400).send("Add Recipe request needs all the information");
+  }
 });
 
 app.post("/editRecipe",function(res,res,next){
