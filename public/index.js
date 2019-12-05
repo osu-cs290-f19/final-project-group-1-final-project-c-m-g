@@ -215,6 +215,7 @@ function CreateModal(){
         ingredients: recipeIngredient,
         directions: recipeDirection 
     })
+    
     var recipeContainer = document.getElementsByClassName('recipe-preview');
     recipeContainer[0].insertAdjacentHTML('beforeend',recipeHTML);
     toggleAddModal();
