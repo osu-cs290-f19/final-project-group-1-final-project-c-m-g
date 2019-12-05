@@ -11,20 +11,20 @@ var port = process.env.PORT || 3000;
 //const url = 'recipebox-shard-00-00-me7ar.mongodb.net:27017/RecipeBox';
 //const dbName = 'recipebox';
 
-//app.engine('handlebars',exphbs({defaultLayout:'index'}));
-//app.set('view engine','handlebars');
+app.engine('handlebars',exphbs({defaultLayout:'main'}));
+app.set('view engine','handlebars');
 
 app.use(express.static('public'));
 
 app.get("/",function (req,res,next){
-  res.status(200).render("index.html");
+  res.status(200).render('mainPage');
 })
 app.get("*", function(req,res){
   res.status(404).render('404');
 })
 
-var MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://weinerc:bigcheese4@recipebox-me7ar.mongodb.net/test?retryWrites=true&w=majority";
+//var MongoClient = require('mongodb').MongoClient;
+//const uri = "mongodb+srv://weinerc:bigcheese4@recipebox-me7ar.mongodb.net/test?retryWrites=true&w=majority";
 // const client = new MongoClient(uri, { useNewUrlParser: true });
 //  client.connect(err => {
 //    var collection = client.db("recipes").collection("recipeBox");

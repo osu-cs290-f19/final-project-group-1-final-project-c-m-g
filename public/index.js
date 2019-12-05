@@ -203,54 +203,20 @@ function CreateModal(){
     var recipeIngredient = document.querySelector("#recipe-ingredient-input").value;
     var recipeDirection = document.querySelector("#recipe-directions-input").value;
 
-    var recipeDiv = document.createElement('div');
-    recipeDiv.classList.add('recipe-preview-container');
-    recipeDiv.setAttribute('data-cook-time',recipeTime);
-    recipeDiv.setAttribute('data-people-served',recipeSize);
-    recipeDiv.setAttribute('data-difficulty',recipeDifficulty);
-    recipeDiv.setAttribute('data-spice',recipeSpice);
-    recipeDiv.setAttribute('data-ingredients',recipeIngredient);
-    recipeDiv.setAttribute('data-directions',recipeDirection);
-    recipeDiv.setAttribute('data-author',recipeAuthor);
-    recipeDiv.setAttribute('data-meal',recipeMeal);
-
-    var recipeImageContainerDiv = document.createElement('div');
-    recipeImageContainerDiv.classList.add('recipe-preview-image-container');
-    recipeDiv.appendChild(recipeImageContainerDiv);
-
-    var recipePhotoImg = document.createElement('img');
-    recipePhotoImg.src = recipePhoto;
-    recipePhotoImg.setAttribute('alt',recipeName);
-    recipeImageContainerDiv.appendChild(recipePhotoImg);
-
-    var recipeHeader = document.createElement('h3');
-    recipeDiv.appendChild(recipeHeader);
-
-    var recipeHeaderA = document.createElement('a');
-    recipeHeaderA.setAttribute('href','#');
-    recipeHeaderA.classList.add('recipe-preview-title');
-    recipeHeaderA.textContent=recipeName;
-    recipeHeader.appendChild(recipeHeaderA);
-
-    var recipeSpan = document.createElement('span');
-    recipeSpan.classList.add('preview-data-author');
-    recipeSpan.textContent = "Created by: "+ recipeAuthor;
-    recipeDiv.appendChild(recipeSpan);
-
-    var editRecipeHeader = document.createElement('h2');
-    editRecipeHeader.classList.add("preview-edit-recipe-text")
-    editRecipeHeader.textContent= "Edit Recipe";
-    recipeDiv.appendChild(editRecipeHeader);
-
-    var recipeEdit = document.createElement('input');
-    recipeEdit.classList.add("preview-edit-checkbox");
-    recipeEdit.setAttribute('type','checkbox');
-    recipeEdit.setAttribute("name","edit-recipe");
-    recipeEdit.setAttribute("value","edit");
-    recipeDiv.appendChild(recipeEdit);
-    
+    var recipeHTML = Handlebars.templates.newRecipe({
+        title: recipeName,
+        url: recipePhoto,
+        peopleServed: recipeSize,
+        cookTime: recipeTime,
+        author: recipeAuthor,
+        difficulty: recipeDifficulty,
+        spice: recipeSpice,
+        meal: recipeMeal,
+        ingredients: recipeIngredient,
+        directions: recipeDirection 
+    })
     var recipeContainer = document.getElementsByClassName('recipe-preview');
-    recipeContainer[0].appendChild(recipeDiv);
+    recipeContainer[0].insertAdjacentHTML('beforeend',recipeHTML);
     toggleAddModal();
    // add.classList.add("hidden");
     //back.classList.add("hidden");

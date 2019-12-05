@@ -10,7 +10,8 @@
     "build:headerTemplate": "handlebars views/partials/header.handlebars -f public/headerTemplate.js",
     "build:modalTemplate": "handlebars views/partials/modal.handlebars -f public/modalTemplate.js",
     "build:searchTemplate": "handlebars views/partials/search.handlebars -f public/searchTemplate.js",
-    "build:mealTabsTemplate": "handlebars views/partials/mealTabs.handlebars -f public/mealTabsTemplate"
+    "build:mealTabsTemplate": "handlebars views/partials/mealTabs.handlebars -f public/mealTabsTemplate.js",
+    "prestart": " npm run build:newRecipeTemplate && npm run build:headerTemplate && npm run build:modalTemplate && npm run build:searchTemplate && npm run build:mealTabsTemplate"
   },
   "repository": {
     "type": "git",
