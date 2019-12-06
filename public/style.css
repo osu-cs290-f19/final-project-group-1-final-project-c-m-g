@@ -6,13 +6,21 @@ Chris Weiner (weinerc@oregonstate.edu)
 */
 html{
     background-color: #FCF4E7;
+    margin: 0;
 }
 
 header{
     display: flex;
+    background-color: #FD671A;
+    max-width: auto;
     position: relative;
-    margin: 10px;
+    margin-bottom: 10px;
     justify-content: center;
+    border-bottom: solid 3px black;
+}
+
+body{
+    margin: 0;
 }
 
 .header-image-container{
@@ -34,13 +42,12 @@ header{
     background-color: #FD671A;
     color: black;
     font-family: 'Satisfy', cursive;
-    font-size: 60px;
+    font-size: 72px;
     text-decoration: none;
         padding-left: 20px;
         padding-right: 20px;
         padding-top: 5px;
         padding-bottom: 5px;
-    border: 2px solid black;
 }
 
 #search-box{
