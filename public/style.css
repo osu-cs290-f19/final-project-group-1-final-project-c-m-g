@@ -46,23 +46,29 @@ header{
 
 #search-box{
     display: flex;
+    flex-wrap: wrap;
     background-color: #BCBDC1;
     border: 2px solid black;
     font-family: 'Crete Round', serif;
     width: auto;
-    align-items: flex-start;
+    min-width: 25%;
+    height: auto;
     justify-content: center;
 }
 
+/*.search-header{
+    display: flex;
+}*/
+
 .search-container{
+    display: inline-block;
     font-family: 'Crete Round', serif;
     align-items: relative;
     padding: 10px;
 }
 
 #search-button{
-    position: relative;
-    display: flex;
+    display: inline-block;
     padding: 10px;
     background-color: black;
     color: white;
@@ -70,11 +76,11 @@ header{
     border-radius: 10px;
     font-family: 'Crete Round', serif;
     font-size: x-large;
+    cursor: pointer;
 }
 
 #search-button:hover{
-    position: relative;
-    display: flex;
+    display: inline-block;
     padding: 10px;
     background-color: #FD671A;
     color: black;
@@ -212,8 +218,8 @@ The active tab by default being the ALL tab*/
     /* background-color: white; */
     /* color: black; */
     /* background-color: #BCBDC1; */    
-    background-color: #FD671A;
-
+    background-color:red;
+    cursor: pointer;
     color: white;
 }
 
