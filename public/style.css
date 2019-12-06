@@ -8,6 +8,10 @@ html{
     background-color: #FCF4E7;
 }
 
+.body{
+    display: flex;
+    flex-wrap: wrap;
+}
 
 header{
     display: flex;
