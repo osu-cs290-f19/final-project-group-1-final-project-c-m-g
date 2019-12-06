@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 var app = express();
 var port = process.env.PORT || 3000;
 var MongoClient = require('mongodb').MongoClient;
-//var mongoURL = "mongodb+srv://weinerc:bigcheese4@recipebox-me7ar.mongodb.net/recipes";
 var mongoURL = "mongodb+srv://weinerc:bigcheese4@recipebox-me7ar.mongodb.net/test?retryWrites=true&w=majority";
 var mongoDB = null;
 
@@ -41,12 +40,13 @@ app.post("/addRecipe",function(req,res,next){
       meal: req.body.meal,
       ingredients: req.body.ingredients,
       directions: req.body.directions
-    },function(err, result){
+    },function(err){
       if(err){
         res.status(500).send("Error saving recipe to database");
       }
       else{
         res.status(200).send("Successfully added recipe");
+        //next();
       }
     })
   }
@@ -55,9 +55,45 @@ app.post("/addRecipe",function(req,res,next){
   }
 });
 
-app.post("/editRecipe",function(res,res,next){
+app.post("/:recipeName/editRecipe",function(req,res,next){
+  var recipeName = req.params.recipeName;
   var recipeCollection = mongoDB.collection('recipeBox');
+  recipeCollection.updateOne({title: recipeName},
+    {
+      $set: {
+      title: req.body.title,
+      url: req.body.url,
+      peopleServed: req.body.peopleServed,
+      cookTime: req.body.cookTime,
+      author: req.body.author,
+      difficulty: req.body.difficulty,
+      spice: req.body.spice,
+      meal: req.body.meal,
+      ingredients: req.body.ingredients,
+      directions: req.body.directions
+      }
+    }, function(err){
+      if(err){
+        res.status(500).send("Error editing recipe in database");
+      }
+      else{
+        res.status(200).send("Successfully edited recipe");
+      }
+    })
 });
+app.post("/:recipeName/deleteRecipe",function(req,res,next){
+  var recipeName = req.params.recipeName;
+  var recipeCollection = mongoDB.collection('recipeBox');
+  recipeCollection.deleteOne({title:recipeName},function(err){
+    if(err){
+      res.status(500).send("Error deleting recipe from database");
+    }
+    else{
+      res.status(200).send("Successfully deleted recipe");
+    }
+  })
+});
+
 app.get("*", function(req,res){
   res.status(404).render('404');
 })
