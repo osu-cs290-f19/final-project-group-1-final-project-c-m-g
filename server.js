@@ -56,6 +56,7 @@ app.post("/addRecipe",function(req,res,next){
 });
 
 app.post("/:recipeName/editRecipe",function(req,res,next){
+  if(req.body && req.body.title && req.body.url && req.body.peopleServed && req.body.cookTime && req.body.author && req.body.difficulty && req.body.spice && req.body.meal && req.body.ingredients && req.body.directions){
   var recipeName = req.params.recipeName;
   var recipeCollection = mongoDB.collection('recipeBox');
   recipeCollection.updateOne({title: recipeName},
@@ -80,6 +81,9 @@ app.post("/:recipeName/editRecipe",function(req,res,next){
         res.status(200).send("Successfully edited recipe");
       }
     })
+  }else{
+    res.status(400).send("Edit Recipe request needs all the information");
+  }
 });
 app.post("/:recipeName/deleteRecipe",function(req,res,next){
   var recipeName = req.params.recipeName;

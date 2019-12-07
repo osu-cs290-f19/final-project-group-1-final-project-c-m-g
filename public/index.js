@@ -315,7 +315,7 @@ function EditModal(){
             break;
         }
         case "Dinner": {
-            document.querySelector("#edit-meal-time-breakfast").checked = true;
+            document.querySelector("#edit-meal-time-dinner").checked = true;
             break;
         }
     }
