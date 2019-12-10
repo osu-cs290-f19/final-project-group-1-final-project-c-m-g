@@ -140,7 +140,7 @@
             <input class="preview-edit-checkbox" type="checkbox" name="edit-recipe" value="edit">
         </div>
 
-        <div class="recipe-preview-container" data-cook-time="45" data-people-served="12" data-difficulty="Got Skills" data-spice="Mild" data-ingredients="1 cat"data-directions="Don't eat it"data-author="Satan" data-meal="Lunch"><!--changed from recipe-card-container *** will this cause access issues??-->
+        <div class="recipe-preview-container" data-cook-time="45" data-people-served="12" data-difficulty="Got Skills" data-spice="Mild" data-ingredients="1 cat"data-directions="Don't eat it"data-author="Satan" data-meal=""><!--changed from recipe-card-container *** will this cause access issues??-->
           <div class="recipe-preview-image-container">
             <img src="https://spicysouthernkitchen.com/wp-content/uploads/chicken-pot-pie-replace-blog-4.jpg" alt="a cute kitten">
           </div>
@@ -155,11 +155,10 @@
   </main>
 
   <!--DOM for recipe card after being clicked on and enlarged-->
+  <div id="display-screen-overlay" class="hidden"></div><!--***-->
   <section id="recipe-cards" class = "hidden">
-
-    <div id="display-screen-overlay" class="hidden"></div><!--***-->
     <div id="recipe-cards-popped" class = "hidden">
-    <button type="button-x" id="display-modal-close-x" class="display-modal-hide-button-x">&times;</button>
+
     <div id="pop-modal" class = "hidden">
 
       <div class="recipes" data-cook-time="{}" data-people-served="{}" data-difficulty="{}" data-spice="{}" data-ingredients="{}"data-directions="{}"data-author="{}" data-meal="{}" class = "hidden">
@@ -195,10 +194,8 @@
     </div>
   </section>
 
-
+    <div id="add-screen-overlay" class="hidden"></div><!--***-->
     <section id="add-recipe-card" class = "hidden"> <!--createModal-->
-
-      <div id="add-screen-overlay" class="hidden"></div><!--***-->
 
       <div id="add-recipe-modal" class="hidden">
         <div class="add-modal">
@@ -326,9 +323,8 @@
 
     </section>
 
+    <div id="edit-screen-overlay" class="hidden"></div><!--***-->  
     <section id="edit-recipe-card" class="hidden"> <!--EditModal-->
-
-      <div id="edit-screen-overlay" class="hidden"></div><!--***-->    
         <div id="edit-recipe-modal" class="hidden">
         <div class="edit-modal">
 
