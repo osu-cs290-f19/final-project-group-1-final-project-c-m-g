@@ -414,6 +414,7 @@ function DisplayModal(){
     for(i=0;i<recipeEdit.length;i++){
         if(editLoop[i].checked){
             editCheck=Number(i);
+            break;
         }
     }
     if(editCheck === null){
@@ -501,3 +502,16 @@ lunchTab[0].addEventListener('click',lunchTabSort);
 dinnerTab[0].addEventListener('click',dinnerTabSort);
 deleteButton.addEventListener('click',deleteRecipe);
 cancelDisplay.addEventListener('click',hideDisplayModal);
+
+function boxCheck(elem){
+    var checkboxes = document.getElementsByClassName("preview-edit-checkbox");
+    var check;
+    if(elem.checked){
+        check = Array.prototype.indexOf.call(checkboxes,elem);
+        for(i=0;i<checkboxes.length;i++){
+            if(i !=check){
+                checkboxes[i].checked = false;
+            }
+        }
+    }
+}
