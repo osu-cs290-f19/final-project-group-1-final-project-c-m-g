@@ -134,7 +134,7 @@ body{
 
 /*Temporary fix for an active tab by default.
 The active tab by default being the ALL tab*/
-#meal-tabs li:first-child a{
+/*#meal-tabs li:first-child a{
     display: block;
     color: white;
     background-color: #FD671A;
@@ -144,12 +144,10 @@ The active tab by default being the ALL tab*/
     margin-top: 15px;
     margin-right: 10px;
     font-family: 'Crete Round', serif;
-}
+}*/
 
-/*When hovering over the Add Recipe tab*/
-#meal-tabs li:last-child a:hover{
-    background-color: darkred;
-    color: white;
+.active #meal-tabs li{
+    background-color: #FD671A;
 }
 
 /*Add, edit and show recipe buttons styling*/
