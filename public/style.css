@@ -6,14 +6,21 @@ Chris Weiner (weinerc@oregonstate.edu)
 */
 html{
     background-color: #FCF4E7;
+    margin: 0;
 }
-
 
 header{
     display: flex;
+    background-color: #FD671A;
+    max-width: auto;
     position: relative;
-    margin: 10px;
+    margin-bottom: 10px;
     justify-content: center;
+    border-bottom: solid 3px black;
+}
+
+body{
+    margin: 0;
 }
 
 .header-image-container{
@@ -35,34 +42,40 @@ header{
     background-color: #FD671A;
     color: black;
     font-family: 'Satisfy', cursive;
-    font-size: 60px;
+    font-size: 72px;
     text-decoration: none;
         padding-left: 20px;
         padding-right: 20px;
         padding-top: 5px;
         padding-bottom: 5px;
-    border: 2px solid black;
 }
 
 #search-box{
     display: flex;
+    flex-wrap: wrap;
     background-color: #BCBDC1;
-    border: 2px solid black;
+    border: 4px solid black;
     font-family: 'Crete Round', serif;
     width: auto;
-    align-items: flex-start;
+    min-width: 25%;
+    height: auto;
     justify-content: center;
+    margin: 5px;
 }
 
+/*.search-header{
+    display: flex;
+}*/
+
 .search-container{
+    display: inline-block;
     font-family: 'Crete Round', serif;
     align-items: relative;
     padding: 10px;
 }
 
 #search-button{
-    position: relative;
-    display: flex;
+    display: inline-block;
     padding: 10px;
     background-color: black;
     color: white;
@@ -70,11 +83,11 @@ header{
     border-radius: 10px;
     font-family: 'Crete Round', serif;
     font-size: x-large;
+    cursor: pointer;
 }
 
 #search-button:hover{
-    position: relative;
-    display: flex;
+    display: inline-block;
     padding: 10px;
     background-color: #FD671A;
     color: black;
@@ -121,7 +134,7 @@ header{
 
 /*Temporary fix for an active tab by default.
 The active tab by default being the ALL tab*/
-#meal-tabs li:first-child a{
+/*#meal-tabs li:first-child a{
     display: block;
     color: white;
     background-color: #FD671A;
@@ -131,12 +144,10 @@ The active tab by default being the ALL tab*/
     margin-top: 15px;
     margin-right: 10px;
     font-family: 'Crete Round', serif;
-}
+}*/
 
-/*When hovering over the Add Recipe tab*/
-#meal-tabs li:last-child a:hover{
-    background-color: darkred;
-    color: white;
+.active #meal-tabs li{
+    background-color: #FD671A;
 }
 
 /*Add, edit and show recipe buttons styling*/
@@ -212,8 +223,8 @@ The active tab by default being the ALL tab*/
     /* background-color: white; */
     /* color: black; */
     /* background-color: #BCBDC1; */    
-    background-color: #FD671A;
-
+    background-color:red;
+    cursor: pointer;
     color: white;
 }
 
@@ -336,13 +347,15 @@ The active tab by default being the ALL tab*/
 
 .recipe-preview{
     display: flex;
+    flex-wrap: wrap;
 }
+
 /*recipe-preview styling*/
 .recipe-preview-container{
+    display: inline-block;
     border: 3px solid black;
     border-radius: 10px;
-    /* width: 15%; */
-    max-width: 20%;
+    max-width: 300px;
     padding: 20px;
     margin: 10px;
     background-color: #BCBDC1;
