@@ -167,6 +167,8 @@ function showAddModal(){
     aM.classList.remove("hidden");
 }
 function hideDisplayModal(){
+    var displayOverlay = document.getElementById("display-screen-overlay");
+    displayOverlay.classList.add("hidden");
     displayModal.classList.add("hidden");
     var disM = document.getElementById("recipe-cards-popped");
     disM.classList.add("hidden");
@@ -421,6 +423,8 @@ function DisplayModal(){
         alert ("Please select a recipe to display.")
         return;
     }
+    var displayOverlay = document.getElementById("display-screen-overlay");
+    displayOverlay.classList.remove("hidden");
     displayModal.classList.remove("hidden");
     var disM = document.getElementById("recipe-cards-popped");
     disM.classList.remove("hidden");
