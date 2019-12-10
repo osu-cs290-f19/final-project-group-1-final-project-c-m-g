@@ -717,23 +717,62 @@ next to the string input fields*/
 }
 
 #display-screen-overlay{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.85);
+   background-color: rgba(0, 0, 0, .7);
+   position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
-
+#add-screen-overlay{
+    background-color: rgba(0, 0, 0, .3);
+    background-color: rgba(0, 0, 0, .7);
+    position: fixed;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   z-index: 1000;
+ }
 
  #edit-screen-overlay{
+    background-color: rgba(0, 0, 0, .3);
+    background-color: rgba(0, 0, 0, .7);
     position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.85);
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   z-index: 1000;
+ }
+
+ .error-container h2{
+    position: relative;
+    background-color: #FD671A;
+    color: black;
+    font-family: 'Satisfy', cursive;
+    font-size: 100px;
+    text-decoration: none;
+    padding-left: 650px;
+    padding-right: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 2px solid black;
+    
+ }
+
+ .error-container h3{
+    display: flex;
+    background-color: #BCBDC1;
+    border: 2px solid black;
+    font-family: 'Crete Round', serif;
+    font-size: 30px;
+    width: auto;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 700px;
+    padding: 50px;
+    margin-left: 400px;
  }
