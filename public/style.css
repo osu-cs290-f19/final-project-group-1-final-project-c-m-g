@@ -142,8 +142,9 @@ The active tab by default being the ALL tab*/
     font-family: 'Crete Round', serif;
 }*/
 
-.active #meal-tabs li{
+#meal-tabs li .meal-tab-active{
     background-color: #FD671A;
+    color: white;
 }
 
 /*Add, edit and show recipe buttons styling*/

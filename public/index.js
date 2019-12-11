@@ -19,6 +19,7 @@ var allTab = document.getElementsByName("tab-all");
 var breakfastTab = document.getElementsByName("tab-breakfast");
 var lunchTab = document.getElementsByName("tab-lunch");
 var dinnerTab = document.getElementsByName("tab-dinner");
+var tabsList = document.querySelectorAll("#meal-tab");
 
 var recipeEditModal = document.querySelector("#edit-recipe-modal");
 var editLoop = document.getElementsByName('edit-recipe');
@@ -32,6 +33,10 @@ function allTabSort(){
             recipeSort[i].classList.remove("hidden");
         }
     }
+    for(i=0;i<tabsList.length;i++){
+        tabsList[i].classList.remove("meal-tab-active");
+    }
+    allTab[0].classList.add("meal-tab-active");
 }
 function breakfastTabSort(){
     allTabSort();
@@ -43,6 +48,10 @@ function breakfastTabSort(){
             recipeSort[i].classList.add("hidden");
         }
     }
+    for(i=0;i<tabsList.length;i++){
+        tabsList[i].classList.remove("meal-tab-active");
+    }
+    breakfastTab[0].classList.add("meal-tab-active");
 }
 function lunchTabSort(){
     allTabSort();
@@ -54,6 +63,10 @@ function lunchTabSort(){
             recipeSort[i].classList.add("hidden");
         }
     }
+    for(i=0;i<tabsList.length;i++){
+        tabsList[i].classList.remove("meal-tab-active");
+    }
+    lunchTab[0].classList.add("meal-tab-active");
 }
 function dinnerTabSort(){
     allTabSort();
@@ -65,6 +78,10 @@ function dinnerTabSort(){
             recipeSort[i].classList.add("hidden");
         }
     }
+    for(i=0;i<tabsList.length;i++){
+        tabsList[i].classList.remove("meal-tab-active");
+    }
+    dinnerTab[0].classList.add("meal-tab-active");
 }
 
 function searchRecipe(){
@@ -203,6 +220,9 @@ function CreateModal(){
     }
     var recipeIngredient = document.querySelector("#recipe-ingredient-input").value;
     var recipeDirection = document.querySelector("#recipe-directions-input").value;
+    if(!recipeName||!recipePhoto||!recipeSize||!recipeTime||!recipeAuthor||!recipeIngredient||!recipeDirection){
+        alert("Please completely fill out values for the recipe card.");
+    }else{
 
     var addRequest = new XMLHttpRequest();
     var requestURL = '/addRecipe';
@@ -245,6 +265,7 @@ function CreateModal(){
     addRequest.setRequestHeader('Content-Type','application/json');
     addRequest.send(requestBody);
     toggleAddModal();
+    }
 }
 
 function EditModal(){
@@ -366,6 +387,9 @@ function editRecipeModal(){
         }
     }
     
+    if(!recipeEditTitle||!recipeEditURL||!recipeEditSize||!recipeEditAuthor||!recipeEditIngredients||!recipeEditDirections){
+        alert("Please fill out all of the recipe card's new information");
+    }else{
 
     var editRequest = new XMLHttpRequest();
     var requestURL = "/"+editTitle+"/editRecipe";
@@ -408,6 +432,7 @@ function editRecipeModal(){
     editRequest.send(requestBody);
     hideEditModal();
     editTitle="";
+    }
 }
 function DisplayModal(){
     editCheck=null;
