@@ -23,10 +23,10 @@ templates['newRecipe'] = template({"compiler":[8,">= 4.3.0"],"main":function(con
     + alias4(((helper = (helper = helpers.url || (depth0 != null ? depth0.url : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"url","hash":{},"data":data,"loc":{"start":{"line":3,"column":24},"end":{"line":3,"column":31}}}) : helper)))
     + "\" alt=\""
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data,"loc":{"start":{"line":3,"column":38},"end":{"line":3,"column":47}}}) : helper)))
-    + "\">\r\n            </div>\r\n            <h3><a href=\"#\" class=\"recipe-preview-title\">"
-    + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data,"loc":{"start":{"line":5,"column":57},"end":{"line":5,"column":66}}}) : helper)))
+    + "\">\r\n            </div>\r\n            <h3><a class=\"recipe-preview-title\">"
+    + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data,"loc":{"start":{"line":5,"column":48},"end":{"line":5,"column":57}}}) : helper)))
     + "</a></h3>\r\n            <span class=\"preview-data-author\">Created by: "
     + alias4(((helper = (helper = helpers.author || (depth0 != null ? depth0.author : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"author","hash":{},"data":data,"loc":{"start":{"line":6,"column":58},"end":{"line":6,"column":68}}}) : helper)))
-    + "</span>\r\n            <h2 class=\"preview-edit-recipe-text\">Edit Recipe</h2>\r\n            <input class=\"preview-edit-checkbox\" type=\"checkbox\" name=\"edit-recipe\" value=\"edit\" onchange=\"boxCheck(this)\">\r\n        </div>";
+    + "</span>\r\n            <h2 class=\"preview-edit-recipe-text\">Select Recipe</h2>\r\n            <input class=\"preview-edit-checkbox\" type=\"checkbox\" name=\"edit-recipe\" value=\"edit\" onchange=\"boxCheck(this)\">\r\n        </div>";
 },"useData":true});
 })();

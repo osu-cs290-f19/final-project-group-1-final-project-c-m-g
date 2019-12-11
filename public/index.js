@@ -4,7 +4,6 @@ index.js file for index.html, will eventually be replaced with handlebars, but t
 var createModal = document.querySelector("#add-recipe-modal");
 var editModal = document.getElementById("edit-recipe-button");
 var cancelEdit = document.querySelector("#edit-modal-close-x");
-var cancelDisplay = document.querySelector("#display-modal-close-x");
 var displayModal = document.querySelector("#recipe-cards");
 var modalBackdrop = document.querySelector("#screen-overlay");
 var cancelRecipe = document.querySelector("#modal-close-x");
@@ -85,35 +84,35 @@ function searchRecipe(){
             text = String(ele[0].getAttribute("alt"));
             var equal = text.toUpperCase().includes(searchTitle.toUpperCase());
             if(!equal){
-                recipes[i].setAttribute('hidden',true);
+                recipes[i].classList.add("hidden");
                 continue;
             }
         }
         ele = Number(recipes[i].getAttribute('data-cook-time'));
         if(maxTime !=""){
-            if(ele<maxTime){
-                recipes[i].setAttribute('hidden',true);
+            if(ele>maxTime){
+                recipes[i].classList.add("hidden");
                 continue;
             }
         }
         ele = Number(recipes[i].getAttribute('data-people-served'));
         if(famSize !=""){
-            if(ele<famSize){
-                recipes[i].setAttribute('hidden',true);
+            if(ele>famSize){
+                recipes[i].classList.add("hidden");
                 continue;
             }
         }
         ele = String(recipes[i].getAttribute('data-difficulty'))
         if(difficulty !=""){
             if(ele !== difficulty){
-                recipes[i].setAttribute('hidden',true);
+                recipes[i].classList.add("hidden");
                 continue;
             }
         }
         ele = String(recipes[i].getAttribute('data-author'));
         if(author != ""){
             if(ele !== author){
-                recipes[i].setAttribute('hidden',true);
+                recipes[i].classList.add("hidden");
                 continue;
             }
         }
@@ -167,6 +166,8 @@ function showAddModal(){
     aM.classList.remove("hidden");
 }
 function hideDisplayModal(){
+    var displayOverlay = document.getElementById("display-screen-overlay");
+    displayOverlay.classList.add("hidden");
     displayModal.classList.add("hidden");
     var disM = document.getElementById("recipe-cards-popped");
     disM.classList.add("hidden");
@@ -421,6 +422,8 @@ function DisplayModal(){
         alert ("Please select a recipe to display.")
         return;
     }
+    var displayOverlay = document.getElementById("display-screen-overlay");
+    displayOverlay.classList.remove("hidden");
     displayModal.classList.remove("hidden");
     var disM = document.getElementById("recipe-cards-popped");
     disM.classList.remove("hidden");
@@ -467,7 +470,6 @@ function deleteRecipe(){
     var removed = recipeEdit[editCheck];
     editTitle = recipeEdit[editCheck].getElementsByTagName("img")[0].getAttribute("alt");
     
-
     var deleteRequest = new XMLHttpRequest();
     var requestURL = "/"+editTitle+"/deleteRecipe";
     deleteRequest.open('POST',requestURL);
@@ -501,7 +503,6 @@ breakfastTab[0].addEventListener('click',breakfastTabSort);
 lunchTab[0].addEventListener('click',lunchTabSort);
 dinnerTab[0].addEventListener('click',dinnerTabSort);
 deleteButton.addEventListener('click',deleteRecipe);
-cancelDisplay.addEventListener('click',hideDisplayModal);
 
 function boxCheck(elem){
     var checkboxes = document.getElementsByClassName("preview-edit-checkbox");
@@ -515,3 +516,9 @@ function boxCheck(elem){
         }
     }
 }
+var displayRecipe = document.getElementById("display-screen-overlay");
+window.onclick = function(event) {
+    if (event.target == displayRecipe) {
+      hideDisplayModal();
+    }
+  }

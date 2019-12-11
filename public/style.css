@@ -63,10 +63,6 @@ body{
     margin: 5px;
 }
 
-/*.search-header{
-    display: flex;
-}*/
-
 .search-container{
     display: inline-block;
     font-family: 'Crete Round', serif;
@@ -248,12 +244,12 @@ The active tab by default being the ALL tab*/
     z-index: 1010;
     /* box-shadow: 2px 15px rgba(0, 0, 0, 0.3); */
 }
-#display-modal-close-x{
+/*#display-modal-close-x{
     /* position: absolute; */
-    display: flex; /*testing*/
+    /*display: flex; /*testing*/
     /* right: 10px; */
     /* top: 5px; */
-    font-size: 46px;
+    /*font-size: 46px;
     border: none;
     background: none;
     color: red;
@@ -262,10 +258,10 @@ The active tab by default being the ALL tab*/
     /* align-self: top; */
     /* justify-self: right; */
     /* margin-right: 5px; */
-    margin-left: 745px;
+    /*margin-left: 745px;
     margin-top: -20px;
     cursor: pointer;
-}
+}*/
 
 
 .recipe-image-container{
@@ -278,8 +274,9 @@ The active tab by default being the ALL tab*/
     /* width: 50%; */
     /* height: 50%; */
     /* testing */
-    width: 85%;
-    height: auto;
+    max-width: 300px;
+    max-height: 300px;
+    /*height: auto;*/
     border-radius: 10px;
     /* border: 3px solid black; */
 }
@@ -352,6 +349,7 @@ The active tab by default being the ALL tab*/
 .recipe-preview{
     display: flex;
     flex-wrap: wrap;
+    margin-left:30px;
 }
 
 /*recipe-preview styling*/
@@ -417,8 +415,6 @@ The active tab by default being the ALL tab*/
     justify-self: right;
 }
 
-/*Add Recipe Card Modal Styling*/
-/*fix this*/
 #add-screen-overlay{
     position: fixed;
     top: 0;
@@ -450,18 +446,18 @@ The active tab by default being the ALL tab*/
 }
 
 /* testing flex container --duplicate for .edit-modal*/
-.add-recipe-modal{
+/*.add-recipe-modal{
     /* display: flex; */
-    /* flex-direction: row; */
-}
+    /* flex-direction: row; 
+}*/
 
 /* testing flex container --duplicate for .edit-modal*/
-.add-modal{
+/*.add-modal{
     /* display: flex; */
     /* flex-direction: row; */
-    /* flex-wrap: wrap; */
+    /* flex-wrap: wrap; 
 
-}
+}*/
 .recipe-modal-header{
     display: flex;
     position: relative;/*testing*/
@@ -475,7 +471,6 @@ The active tab by default being the ALL tab*/
     font-size: x-large;
 }
 
-/*fix this*/
 #modal-close-x{
     /* position: absolute; */
     display: flex; /*testing*/
@@ -514,7 +509,6 @@ The active tab by default being the ALL tab*/
     border: 1px solid black;
 }
 
-/* testing */
 #recipe-title-input{
     width: 449px;
 }
@@ -550,7 +544,7 @@ The active tab by default being the ALL tab*/
     display: flex;
     flex-direction: row;
 }
-/*fix this*/
+
 .recipe-input-element fieldset{
     display: inline-flex;
     position: relative;
@@ -589,7 +583,7 @@ The active tab by default being the ALL tab*/
 }
 
 /*Edit Recipe Card Modal Styling*/
-/*fix this*/
+
 #edit-recipe-card{
     position: fixed;
     top: 0;
@@ -623,7 +617,7 @@ The active tab by default being the ALL tab*/
 .edit-recipe-modal-header h3{
     margin: 45px;
 }
-/*fix this*/
+
 #edit-modal-close-x{
      /* position: absolute; */
      display: flex; /*testing*/
@@ -660,7 +654,6 @@ The active tab by default being the ALL tab*/
     border: 1px solid black;
 }
 
-/* testing */
 #edit-recipe-title-input{
     width: 449px;
 }
@@ -690,9 +683,6 @@ The active tab by default being the ALL tab*/
     /* max-width: 90%; */
     width: 472px;
 }
-
-/*fix this, want to make this appear to the right
-next to the string input fields*/
 
 /* .fieldset-group rule in recipe modal also applies to edit */
 .edit-recipe-input-element fieldset{
