@@ -1,4 +1,7 @@
-//server.js file for final project
+//server.js file for final project for Group CMG
+//Christopher Weiner
+//Marcella Petrucci
+//Garrett Brown
 
 var path = require('path');
 var express = require('express');
